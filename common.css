@@ -1,0 +1,26 @@
+:root {
+  --custom-text-secondary: rgb(107, 107, 107);
+  --custom-text-secondary-hover: rgb(33, 33, 33);
+  --header-dark-background-color: #262626;
+  --header-dark-text-color: #ffffff;
+}
+
+.tippy-box[data-theme~="tooltipTheme"] {
+  background-color: rgb(242, 242, 242);
+  color: rgb(33, 33, 33);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.tippy-box[data-theme~="tooltipTheme"] .tippy-arrow::before {
+  color: rgb(242, 242, 242);
+}
+
+input {
+  background-color: var(--header-dark-background-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--header-dark-text-color);
+}

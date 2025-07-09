@@ -1,0 +1,27 @@
+footer {
+    background-color: var(--header-dark-background-color);
+}
+
+footer a {
+    text-decoration: none;
+    color: #a6a6a6 !important;
+    font-size: 14px;
+}
+
+footer a:hover {
+    color: var(--header-dark-text-color) !important;
+}
+
+/* footer>div.leftGroup {}
+
+footer>div.leftGroup>a.hideSidebarButton {}
+
+footer>div.leftGroup>a.consoleButton {}
+
+footer>div.leftGroup>a.accountButton {}
+
+footer>div.rightGroup {}
+
+footer>div.rightGroup>a.layoutButton {}
+
+footer>div.rightGroup>a.questionButton {} */

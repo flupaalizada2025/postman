@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Postman Clone</title>
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Google Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Fontawesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="buttons.css" />
+    <link rel="stylesheet" href="utils.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="sidebar.css" />
+    <link rel="stylesheet" href="rightmenu.css" />
+    <link rel="stylesheet" href="./footer.css" />
+    <link rel="stylesheet" href="./splitter.css" />
+  </head>
+
+  <body class="vh-100 d-flex flex-column">
+    <header class="d-flex flex-column gap-2 p-2">
+      <div class="topHeader d-flex gap-2">
+        <a href="#" class="text-decoration-none">File</a>
+        <a href="#" class="text-decoration-none">Edit</a>
+        <a href="#" class="text-decoration-none">View</a>
+        <a href="#" class="text-decoration-none">Help</a>
+      </div>
+      <div class="mainHeader d-flex justify-content-between">
+        <div class="leftGroup d-flex gap-2">
+          <div class="dropdown">
+            <a href="#" class="btn border-0 hoverBgLightGray text-light"
+              >Home</a
+            >
+            <button
+              class="btn btn-dark dropdown-toggle bg-transparent border-0 shadow-none hoverBgLightGray"
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="outside"
+              aria-expanded="false"
+            >
+              Workspaces
+            </button>
+
+            <div class="dropdown-menu dropdownContent">
+              <div class="d-flex workspaceBtns">
+                <input
+                  type="search"
+                  class="form-control bg-dark text-light"
+                  placeholder="Search Workspaces"
+                  id="searchWorkspace"
+                  onkeyup="search()"
+                />
+                <button class="bg-dark text-light">
+                  <a href="./createspace.html">Create Workspace</a>
+                </button>
+              </div>
+
+              <div class="workspaces mt-2 ps-4">
+                <p class="d-flex flex-column">Recently visited</p>
+                <button class="text-light yourWorkSpace w-100 mt-1">
+                  <span id="resultBtn">
+                    Flup's Workspace
+                    <i class="fa-solid fa-users"></i>
+                  </span>
+                </button>
+              </div>
+
+              <div class="workspaces mt-2 ps-4">
+                <p class="d-flex flex-column">Recently visited</p>
+                <button class="text-light yourWorkSpace w-100 mt-1">
+                  <span id="resultBtn">
+                    My Workspace
+                    <i class="fa-solid fa-lock"></i>
+                  </span>
+                </button>
+              </div>
+
+              <!-- No results found message -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center gap-2"
+                id="noResultDiv"
+              >
+                <img
+                  src="https://postman.com/_aether-assets/illustrations/dark/illustration-search.svg"
+                  alt="No Results"
+                  class="pt-4"
+                />
+                <h5>No workspaces found</h5>
+                <p class="mb-4">
+                  Check your spelling or try a different search term.
+                </p>
+              </div>
+
+              <div
+                class="d-flex align-items-center gap-2 viewAll pt-1 pe-4 ps-4"
+              >
+                <i class="fa-solid fa-border-all"></i>View all Workspaces
+              </div>
+            </div>
+            <a href="#" class="btn border-0 hoverBgLightGray text-light"
+              >Explore</a
+            >
+          </div>
+        </div>
+
+        <div class="searchContainer d-flex gap-2 py-2 px-5 text-secondary">
+          <i class="bi bi-search"></i>
+          <span>Search Postman</span>
+        </div>
+
+        <div class="rightGroup d-flex gap-2">
+          <div class="dropdown">
+            <button
+              class="btn border-0 hoverBgLightGray"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-gear"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end p-2">
+              <div class="d-flex flex-column gap-1">
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Settings
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Release Notes
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Learning Center
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Support Center
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Security
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Privacy Policy
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Terms
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  @getpostman
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="btn bgLightGray">Sign in</a>
+
+          <a href="#" class="btn bgOrange text-white">Create Account</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-fill d-flex flex-row" style="overflow: hidden">
+      <aside class="sidebar d-flex flex-column">
+        <div
+          class="header d-flex justify-content-between align-items-center p-2"
+        >
+          <h6 class="m-0">History</h6>
+          <div class="buttons">
+            <button class="btn bgLightGray p-1 inter-5">New</button>
+            <button class="btn bgLightGray p-1 inter-5">Import</button>
+          </div>
+        </div>
+        <div class="content p-2 flex-fill">
+          <div class="searchBar d-flex align-items-center gap-2">
+            <div class="search flex-fill">
+              <div class="input-group">
+                <span class="input-group-text text-light" id="search-icon">
+                  <i class="bi bi-filter"></i>
+                </span>
+                <input
+                  type="search"
+                  class="form-control bg-dark text-light"
+                  aria-label="Search"
+                  aria-describedby="search-icon"
+                />
+              </div>
+            </div>
+            <div class="button">
+              <div id="saveResponsesDropdown" class="dropdown">
+                <button
+                  class="btn border-0 hoverBgLightGray px-2"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  data-bs-auto-close="outside"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-three-dots"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-start p-2">
+                  <div
+                    class="form-check form-switch d-flex align-items-center gap-2 mb-0 p-2 hoverBgLightGray rounded-1 cursor-pointer"
+                  >
+                    <label
+                      class="form-check-label text-nowrap order-1 cursor-pointer"
+                      for="saveResponesSwitch"
+                      >Save Responses</label
+                    >
+                    <input
+                      class="form-check-input order-2 cursor-pointer"
+                      type="checkbox"
+                      id="saveResponesSwitch"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emptyContent d-flex flex-column gap-3 align-items-center py-5 px-2"
+          >
+            <img src="images/illustration-no-history.svg" alt="Empty Image" />
+            <h6>Time to send your first request</h6>
+            <p class="text-center">
+              All the requests you send will be stored in History. Sign in or
+              create an account to organize them in collections.
+            </p>
+            <a href="#" class="inter-5">Show me how</a>
+          </div>
+        </div>
+        <div class="footer d-flex gap-3 align-items-start p-3">
+          <img
+            class="bgLightGray p-2 rounded-1"
+            src="images/aether.svg"
+            alt="Icon"
+          />
+          <div>
+            <h6>Create collections in Postman</h6>
+            <p>
+              Use collections to save your requests and share them with others.
+            </p>
+            <button class="btn text-light">Create a collection</button>
+          </div>
+        </div>
+      </aside>
+      <div
+        class="splitter verticalSplitter"
+        data-direction="vertical"
+        data-prevmin="350"
+        data-nextmin="700"
+        data-collapsePrevCallback="collapsePrev"
+        data-expandPrevCallback="expandPrev"
+        data-collapseNextCallback="collapseNext"
+        data-expandNextCallback="expandNext"
+      ></div>
+      <section
+        class="rightMenu flex-fill d-flex flex-column align-items-stretch"
+      >
+        <div class="tabContainer d-flex">
+          <div class="tabs d-flex">
+            <div class="tab p-2 d-flex align-items-center gap-2">
+              <span class="method getMethodColor inter-6">GET</span>
+              <span class="title flex-fill">Untitled Request</span>
+              <button class="closeRequest btn hoverBgLightGray">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+            <div class="tab p-2 d-flex align-items-center gap-2 active">
+              <span class="method getMethodColor inter-6">GET</span>
+              <span class="title flex-fill">Untitled Request</span>
+              <button class="closeRequest btn hoverBgLightGray">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+            <div class="tab p-2 d-flex align-items-center gap-2">
+              <span class="method deleteMethodColor inter-6">Delete</span>
+              <span class="title flex-fill">Untitled Request</span>
+              <button class="closeRequest btn hoverBgLightGray">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+          </div>
+          <div class="actions d-flex flex-fill p-1">
+            <button class="addRequest btn hoverBgLightGray">
+              <i class="bi bi-plus"></i>
+            </button>
+            <div class="dropdown">
+              <button
+                class="btn border-0 hoverBgLightGray px-2"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                <i class="bi bi-three-dots"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end p-2">
+                <div class="d-flex flex-column gap-1">
+                  <div class="dropdown dropend recentlyClosedTabs">
+                    <button
+                      class="dropdown-toggle btn hoverBgLightGray w-100 text-start"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Recently Closed Tabs
+                    </button>
+                    <div class="dropdown-menu p-2">
+                      <div class="d-flex flex-column gap-1">
+                        <button
+                          class="btn hoverBgLightGray recentClosedRequest w-100"
+                        >
+                          <span class="method getMethodColor inter-6">GET</span>
+                          <span class="title">Untitled Request</span>
+                        </button>
+                        <button
+                          class="btn hoverBgLightGray recentClosedRequest w-100"
+                        >
+                          <span class="method getMethodColor inter-6">GET</span>
+                          <span class="title">Untitled Request</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                  >
+                    Duplicate Selected Tab
+                  </button>
+                  <hr class="dropdown-divider" />
+                  <button
+                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                  >
+                    Close Selected Tab
+                  </button>
+                  <button
+                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                  >
+                    Force Close Selected Tab
+                  </button>
+                  <button
+                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                  >
+                    Close All but Selected Tab
+                  </button>
+                  <button
+                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                  >
+                    Close All Tabs
+                  </button>
+                  <button
+                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                  >
+                    Force Close All Tabs
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-fill">
+          <div class="requestArea d-flex flex-column flex-fill">
+            <div
+              class="requestContainer flex-fill p-2 d-flex flex-column gap-3"
+            >
+              <div class="header d-flex justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="requestType">
+                    <img src="images/http.svg" alt="Request Type" />
+                  </div>
+                  <p class="requestTitle inter-6 mb-0">Untitled Request</p>
+                </div>
+                <button
+                  class="btn hoverBgLightGray d-flex align-items-center gap-2 p-1"
+                >
+                  <img src="images/save.svg" alt="Save Button" />
+                  <span class="text-secondary">Save</span>
+                </button>
+              </div>
+              <div class="searchBar d-flex gap-2">
+                <div class="searchBox flex-fill d-flex rounded-2">
+                  <div class="methodInput">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control border-0 getMethodColor"
+                        value="GET"
+                      />
+                      <button
+                        class="btn dropdown-toggle border-0 shadow-none text-light"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      ></button>
+                      <div class="dropdown-menu dropdown-menu-end p-2 bg-dark">
+                        <div class="d-flex flex-column methodMenu">
+                          <button
+                            class="btn hoverBgLightGray getMethodColor p-1 rounder-1 text-start"
+                          >
+                            GET
+                          </button>
+                          <button
+                            class="btn hoverBgLightGray postMethodColor p-1 rounder-1 text-start"
+                          >
+                            POST
+                          </button>
+                          <button
+                            class="btn hoverBgLightGray putMethodColor p-1 rounder-1 text-start"
+                          >
+                            PUT
+                          </button>
+                          <button
+                            class="btn hoverBgLightGray patchMethodColor p-1 rounder-1 text-start"
+                          >
+                            PATCH
+                          </button>
+                          <button
+                            class="btn hoverBgLightGray deleteMethodColor p-1 rounder-1 text-start"
+                          >
+                            DELETE
+                          </button>
+                          <button
+                            class="btn hoverBgLightGray headMethodColor p-1 rounder-1 text-start"
+                          >
+                            HEAD
+                          </button>
+                          <button
+                            class="btn hoverBgLightGray optionsMethodColor p-1 rounder-1 text-start"
+                          >
+                            OPTIONS
+                          </button>
+                        </div>
+                        <hr class="dropdown-divider" />
+
+                        <p class="text-secondary p-2 mb-0">Type a new method</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="urlInput flex-fill text-light">
+                    <input
+                      type="text"
+                      class="form-control border-0"
+                      placeholder="Enter URL or paste text"
+                    />
+                  </div>
+                </div>
+                <div class="action">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Send</button>
+                    <button
+                      type="button"
+                      class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <span class="visually-hidden">Send Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu p-2 bg-dark text-light">
+                      <button
+                        class="btn hoverBgLightGray text-nowrap p-2 text-light"
+                      >
+                        Send and Download
+                      </button>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="parameterTabs d-flex gap-4">
+                <a href="#" class="parameterTab inter-4 text-nowrap active"
+                  >Params</a
+                >
+                <a href="#" class="parameterTab inter-4 text-nowrap"
+                  >Authorization</a
+                >
+                <a href="#" class="parameterTab inter-4 text-nowrap">Headers</a>
+                <a href="#" class="parameterTab inter-4 text-nowrap">Body</a>
+                <a href="#" class="parameterTab inter-4 text-nowrap"
+                  >Pre-request Script</a
+                >
+                <a href="#" class="parameterTab inter-4 text-nowrap">Tests</a>
+                <a href="#" class="parameterTab inter-4 text-nowrap"
+                  >Settings</a
+                >
+                <span class="flex-fill"></span>
+                <a href="#" class="cookiesTab">Cookies</a>
+              </div>
+              <div class="tabContentContainer">
+                <div class="paramsTabContent">
+                  <h6 class="tabHeader">Query Params</h6>
+                  <div class="tabContent">
+                    <table class="w-100">
+                      <tr>
+                        <th style="min-width: 48px"></th>
+                        <th class="w-50">Key</th>
+                        <th class="w-50">Value</th>
+                        <th class="text-nowrap">
+                          <button class="btn p-0">Bulk Edit</button>
+                        </th>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>Key</td>
+                        <td colspan="2">Value</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="splitter horizontalSplitter"
+              data-direction="horizontal"
+            ></div>
+            <div class="responseContainer p-2 d-flex flex-column">
+              <div
+                class="header d-flex justify-content-between text-secondary cursor-pointer"
+              >
+                <p>Response</p>
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="content flex-fill">
+                <div
+                  class="emptyContent d-flex flex-column align-items-center justify-content-middle gap-4"
+                >
+                  <img src="images/emptyresponse.svg" alt="Empty" />
+                  <p class="text-secondary">
+                    Enter the URL and click Send to get a response
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rightSidebar d-flex flex-column gap-2 p-2">
+            <button class="btn hoverBgLightGray rightBarCodeButton">
+              <i class="bi bi-code-slash"></i>
+            </button>
+            <button class="btn hoverBgLightGray rightBarTemplatesButton">
+              <img src="images/templates.svg" alt="Templates" />
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="d-flex justify-content-between py-1 px-2">
+      <div class="leftGroup d-flex gap-3">
+        <a href="#" class="hideSidebarButton">
+          <i class="bi bi-layout-text-sidebar"></i>
+        </a>
+        <a href="#" class="consoleButton">
+          <i class="bi bi-terminal"></i>
+          <span>Console</span></a
+        >
+        <a href="#" class="accountButton">
+          <i class="bi bi-cloud-slash"></i>
+          <span>Not connected to a Postman account</span>
+        </a>
+      </div>
+      <div class="rightGroup d-flex gap-3">
+        <a href="#" class="layoutButton">
+          <i class="bi bi-layout-split"></i>
+        </a>
+        <a href="#" class="questionButton">
+          <i class="bi bi-question-circle"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Header.js -->
+    <script src="./header.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Tippy Tooltip CDN -->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    <script src="tooltips.js"></script>
+
+    <script src="splitter.js"></script>
+  </body>
+</html>

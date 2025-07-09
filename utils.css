@@ -1,0 +1,63 @@
+.bgLightGray {
+    background-color: #303030 !important;
+    color: white;
+}
+
+/* .bgLightGray:hover {
+    background-color: rgb(230, 230, 230) !important;
+} */
+
+.hoverBgLightGray:hover {
+    /* background-color: red !important; */
+    color: white !important;
+}
+
+.bgOrange {
+    background-color: rgb(255, 108, 55) !important;
+    color: #ffffff;
+}
+
+.bgOrange:hover {
+    background-color: rgb(224, 83, 32) !important;
+    color: #ffffff;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.getMethodColor,
+.getMethodColor:hover {
+    color: rgb(0, 127, 49);
+}
+
+
+.postMethodColor,
+.postMethodColor:hover {
+    color: rgb(173, 122, 3);
+}
+
+.putMethodColor,
+.putMethodColor:hover {
+    color: rgb(0, 83, 184);
+}
+
+.patchMethodColor,
+.patchMethodColor:hover {
+    color: rgb(98, 52, 151);
+}
+
+.deleteMethodColor,
+.deleteMethodColor:hover {
+    color: rgb(142, 26, 16);
+}
+
+.headMethodColor,
+.headMethodColor:hover {
+    color: rgb(0, 127, 49);
+}
+
+.optionsMethodColor,
+.optionsMethodColor:hover {
+    color: rgb(166, 20, 104);
+}

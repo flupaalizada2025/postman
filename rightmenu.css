@@ -1,0 +1,227 @@
+/* body>main>section.rightMenu {}
+
+body>main>section.rightMenu>div.tabContainer {}
+
+body>main>section.rightMenu>div.tabContainer>div.tabs {} */
+
+body>main>section.rightMenu>div.tabContainer>div.tabs>div.tab {
+    min-width: 180px;
+    border-bottom: 1px solid #383838;
+    border-right: 1px solid #383838;
+}
+
+body>main>section.rightMenu>div.tabContainer>div.tabs>div.tab.active {
+    border-bottom: none;
+    border-top: 2px solid rgb(255, 108, 55);
+}
+
+body>main>section.rightMenu>div.tabContainer>div.tabs>div.tab>span.method {
+    font-size: 9px;
+}
+
+body>main>section.rightMenu>div.tabContainer>div.tabs>div.tab>span.title {
+    color: white   ;
+    font-size: 11px;
+}
+
+body>main>section.rightMenu>div.tabContainer>div.tabs>div.tab>button.closeRequest {
+    padding: 0px 6px;
+}
+
+body>main>section.rightMenu>div.tabContainer>div.actions {
+    border-bottom: 1px solid #383838;
+}
+
+body>main>section.rightMenu>div.tabContainer>div.actions>button.addRequest {
+    padding: 4px 8px;
+}
+
+/* body>main>section.rightMenu>div.tabContainer>div.actions>div.dropdown {} */
+
+body>main>section.rightMenu>div.tabContainer>div.actions>div.dropdown>button {
+    padding: 4px 8px;
+}
+
+body>main>section.rightMenu>div.tabContainer>div.actions>div.dropdown div.dropdown .dropdown-toggle::after {
+    position: absolute;
+    top: 50%;
+    translate: 0% -50%;
+    right: 12px;
+}
+
+body>main>section.rightMenu>div.tabContainer>div.actions>div.dropdown div.dropdown .recentClosedRequest>span.method {
+    font-size: 9px;
+}
+
+body>main>section.rightMenu>div.tabContainer>div.actions>div.dropdown div.dropdown .recentClosedRequest>span.title {
+    font-size: 11px;
+}
+
+/* body>main>section.rightMenu div.requestArea {}
+
+body>main>section.rightMenu div.requestArea>.requestContainer {} */
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.header .requestType {
+    /* background-color: rgb(249, 249, 249); */
+    border: 1px solid rgb(237, 237, 237);
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.header .requestType:hover {
+    background-color: rgb(237, 237, 237);
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.header .requestTitle {
+    font-size: 12px;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.header button span {
+    font-size: 14px;
+}
+
+/* body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar {} */
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox {
+    border: 1px solid #383838;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.methodInput {
+    background-color: #262626;
+}
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.methodInput > .dropdown-menu {
+    background-color: #262626 !important;
+
+}
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.methodInput input {
+    width: 110px;
+    font-size: 14px;
+    background-color: #262626;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.methodInput p {
+    font-size: 12px;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.urlInput {
+    position: relative;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.urlInput::before {
+    content: "";
+    width: 1px;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    translate: 0% -50%;
+    background-color: #383838;
+    z-index: 100;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.urlInput input {
+    font-size: 13px;
+    height: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #262626;
+    color: #6B6B6B !important;
+}
+
+/* body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.urlInput input::placeholder, 
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.searchBox>.urlInput input::ms-input-placeholder{
+    color: #6B6B6B; 
+} */
+
+
+/* body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.action {} */
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.searchBar>.action .dropdown-menu button {
+    font-size: 14px;
+}
+
+/* body>main>section.rightMenu div.requestArea>.requestContainer>.parameterTabs {} */
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.parameterTabs>.parameterTab {
+    text-decoration: none;
+    color: var(--custom-text-secondary);
+    font-size: 12px;
+    padding: 8px 0px;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.parameterTabs>.parameterTab.active {
+    border-bottom: 1px solid rgb(255, 108, 55);
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.parameterTabs>.parameterTab:hover {
+    color: var(--custom-text-secondary-hover);
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.parameterTabs>.cookiesTab {
+    text-decoration: none;
+    color: rgb(2, 101, 210);
+    font-size: 12px;
+}
+
+/* body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent {}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabHeader {}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent {} */
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent table {
+    border-collapse: collapse;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent table,
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent tr,
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent td,
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent th {
+    border: 1px solid #383838;
+    font-size: 12px;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent td,
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent th {
+    padding: 5px;
+}
+
+body>main>section.rightMenu div.requestArea>.requestContainer>.tabContentContainer>.paramsTabContent .tabContent th>button {
+    font-size: 12px;
+}
+
+
+body>main>section.rightMenu div.requestArea>.responseContainer {
+    border-top: 1px solid #383838;
+}
+
+body>main>section.rightMenu div.requestArea>.responseContainer>.header>p {
+    font-size: 14px;
+}
+
+body>main>section.rightMenu div.requestArea>.responseContainer>.header>i {
+    font-size: 12px;
+}
+
+/* body>main>section.rightMenu div.requestArea>.responseContainer>.content {}
+
+body>main>section.rightMenu div.requestArea>.responseContainer>.content>.emptyContent {} */
+
+body>main>section.rightMenu div.requestArea>.responseContainer>.content>.emptyContent>img {
+    width: 140px;
+}
+
+body>main>section.rightMenu div.requestArea>.responseContainer>.content>.emptyContent>p {
+    font-size: 12px;
+}
+
+body>main>section.rightMenu div.rightSidebar {
+    border-left: 1px solid #383838;
+}
+
+body>main>section.rightMenu div.rightSidebar i {
+    color: #6B6B6B !important;
+}

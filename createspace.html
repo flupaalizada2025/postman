@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Workspace</title>
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Google Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Fontawesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="buttons.css" />
+    <link rel="stylesheet" href="utils.css" />
+    <link rel="stylesheet" href="header.css" />
+  </head>
+  <body class="vh-100 d-flex flex-column">
+    <header class="d-flex flex-column gap-2 p-2">
+      <div class="topHeader d-flex gap-2">
+        <a href="#" class="text-decoration-none">File</a>
+        <a href="#" class="text-decoration-none">Edit</a>
+        <a href="#" class="text-decoration-none">View</a>
+        <a href="#" class="text-decoration-none">Help</a>
+      </div>
+      <div class="mainHeader d-flex justify-content-between">
+        <div class="leftGroup d-flex gap-2">
+          <div class="dropdown">
+            <a href="#" class="btn border-0 hoverBgLightGray text-light"
+              >Home</a
+            >
+            <button
+              class="btn btn-dark dropdown-toggle bg-transparent border-0 shadow-none hoverBgLightGray"
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="outside"
+              aria-expanded="false"
+            >
+              Workspaces
+            </button>
+
+            <div class="dropdown-menu dropdownContent">
+              <div class="d-flex workspaceBtns">
+                <input
+                  type="search"
+                  class="form-control bg-dark text-light"
+                  placeholder="Search Workspaces"
+                  id="searchWorkspace"
+                  onkeyup="search()"
+                />
+                <button class="bg-dark text-light">Create Workspace</button>
+              </div>
+
+              <div class="workspaces mt-2 ps-4">
+                <p class="d-flex flex-column">Recently visited</p>
+                <button class="text-light yourWorkSpace w-100 mt-1">
+                  <span id="resultBtn">
+                    Flup's Workspace
+                    <i class="fa-solid fa-users"></i>
+                  </span>
+                </button>
+              </div>
+
+              <div class="workspaces mt-2 ps-4">
+                <p class="d-flex flex-column">Recently visited</p>
+                <button class="text-light yourWorkSpace w-100 mt-1">
+                  <span id="resultBtn">
+                    My Workspace
+                    <i class="fa-solid fa-lock"></i>
+                  </span>
+                </button>
+              </div>
+
+              <!-- No results found message -->
+              <div
+                class="d-flex flex-column justify-content-center align-items-center gap-2"
+                id="noResultDiv"
+              >
+                <img
+                  src="https://postman.com/_aether-assets/illustrations/dark/illustration-search.svg"
+                  alt="No Results"
+                  class="pt-4"
+                />
+                <h5>No workspaces found</h5>
+                <p class="mb-4">
+                  Check your spelling or try a different search term.
+                </p>
+              </div>
+
+              <div
+                class="d-flex align-items-center gap-2 viewAll pt-1 pe-4 ps-4"
+              >
+                <i class="fa-solid fa-border-all"></i>View all Workspaces
+              </div>
+            </div>
+            <a href="#" class="btn border-0 hoverBgLightGray text-light"
+              >Explore</a
+            >
+          </div>
+        </div>
+
+        <div class="searchContainer d-flex gap-2 py-2 px-5 text-secondary">
+          <i class="bi bi-search"></i>
+          <span>Search Postman</span>
+        </div>
+
+        <div class="rightGroup d-flex gap-2">
+          <div class="dropdown">
+            <button
+              class="btn border-0 hoverBgLightGray"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-gear"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end p-2">
+              <div class="d-flex flex-column gap-1">
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Settings
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Release Notes
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Learning Center
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Support Center
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Security
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Privacy Policy
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  Terms
+                </button>
+                <button
+                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
+                >
+                  @getpostman
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="btn bgLightGray">Sign in</a>
+
+          <a href="#" class="btn bgOrange text-white">Create Account</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div
+        class="w-100 vh-100 d-flex justify-content-center align-items-center text-dark"
+      >
+        <button>
+          <a href="./index.html" class="text-dark pt-4 pb-4 pe-2 ps-2">
+            Back to Home
+          </a>
+        </button>
+      </div>
+    </main>
+    <!-- Header.js -->
+    <script src="./header.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

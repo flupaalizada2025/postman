@@ -1,0 +1,22 @@
+/* body {
+
+}
+
+body > header {
+} */
+
+body > main {
+  border-top: 1px solid #383838;
+  border-bottom: 1px solid #383838;
+}
+
+body > main > aside.sidebar {
+  max-width: 400px;
+}
+
+body > main > section.rightMenu {
+  background-color: #212121;
+}
+
+/* body > footer {
+} */

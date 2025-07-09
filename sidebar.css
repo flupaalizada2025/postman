@@ -1,0 +1,179 @@
+body > main > aside.sidebar {
+  border-right: 1px solid #383838;
+  width: 400px;
+  background-color:#262626;
+  color: white;
+}
+
+body > main > aside.sidebar > div.header {
+  border-bottom: 1px solid #383838;
+}
+
+/* body > main > aside.sidebar > div.header > h6 {
+} */
+
+body > main > aside.sidebar > div.header > div.buttons {
+  background-color: #303030;
+  color: white;
+}
+
+body > main > aside.sidebar > div.header > div.buttons > button {
+  font-size: 12px;
+}
+
+/* body > main > aside.sidebar > div.content {
+}
+
+body > main > aside.sidebar > div.content > div.searchBar {
+}
+
+body > main > aside.sidebar > div.content > div.searchBar > div.search {
+} */
+
+body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.search
+  span.input-group-text {
+  background-color: transparent;
+  padding: 2px 12px;
+}
+
+body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.search
+  input.form-control {
+  border-left: 0;
+  box-shadow: none;
+  font-size: 12px;
+  padding: 2px 12px 2px 0px;
+  color: red;
+}
+
+body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.search
+  input.form-control:focus {
+  border-color: #dee2e6;
+}
+
+/* body > main > aside.sidebar > div.content > div.searchBar > div.button {
+} */
+
+/* body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.button
+  > div.dropdown {
+} */
+
+body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.button
+  > div.dropdown
+  > button {
+  padding: 3px 8px;
+}
+
+body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.button
+  > div.dropdown
+  > div.dropdown-menu
+  input.form-check-input {
+  position: relative !important;
+  margin-left: auto;
+}
+
+body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.button
+  > div.dropdown
+  > div.dropdown-menu
+  input.form-check-input:checked,
+body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.button
+  > div.dropdown
+  > div.dropdown-menu
+  input.form-check-input:focus-visible {
+  background-color: #d23f0e;
+  border-color: #d23f0e;
+}
+
+body
+  > main
+  > aside.sidebar
+  > div.content
+  > div.searchBar
+  > div.button
+  > div.dropdown
+  > div.dropdown-menu
+  input.form-check-input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* body > main > aside.sidebar > div.content > div.emptyContent {
+}
+
+body > main > aside.sidebar > div.content > div.emptyContent > img {
+} */
+
+body > main > aside.sidebar > div.content > div.emptyContent > h6 {
+  font-size: 14px;
+}
+
+body > main > aside.sidebar > div.content > div.emptyContent > p {
+  font-size: 12px;
+  color: var(--custom-text-secondary);
+}
+
+body > main > aside.sidebar > div.content > div.emptyContent > a {
+  text-decoration: none;
+  font-size: 12px;
+}
+
+body > main > aside.sidebar > div.footer {
+  border-top: 1px solid lightgray;
+}
+
+body > main > aside.sidebar > div.footer h6 {
+  font-size: 14px;
+}
+
+body > main > aside.sidebar > div.footer p {
+  font-size: 12px;
+  color: var(--custom-text-secondary);
+}
+
+body > main > aside.sidebar > div.footer button {
+  font-size: 12px;
+  border: 1px solid lightgray;
+}
+
+body > main > aside.sidebar > div.footer button:hover {
+  border-color: gray;
+}

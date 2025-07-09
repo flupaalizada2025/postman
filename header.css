@@ -1,0 +1,167 @@
+header {
+  background-color: var(--header-dark-background-color);
+}
+
+header > div.topHeader {
+  color: var(--header-dark-text-color);
+}
+
+header > div.topHeader > a {
+  font-size: 0.9rem;
+  color: var(--header-dark-text-color);
+}
+
+/* header>div.mainHeader {
+} */
+
+header > div.mainHeader > div.leftGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+header > div.mainHeader > div.leftGroup > a {
+  color: var(--header-dark-text-color);
+}
+
+/* 
+header>div.mainHeader>div.leftGroup>div.dropdown {
+} */
+
+header > div.mainHeader > div.leftGroup > div.dropdown > .dropdown-menu {
+  position: relative;
+  background-color: var(--header-dark-background-color);
+  color: var(--header-dark-text-color);
+  width: 390px;
+  height: 500px;
+  /* padding: 24px; */
+  padding-top: 24px;
+  border-radius: 8px;
+  border-color: #6d6d6d;
+}
+
+header
+  > div.mainHeader
+  > div.leftGroup
+  > div.dropdown
+  > .dropdown-menu
+  > .workspaceBtns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 24px;
+}
+
+header #noResultDiv {
+  display: none !important;
+}
+header .viewAll {
+  position: absolute;
+  top: 93%;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #6d6d6d;
+}
+header > div.mainHeader > div.leftGroup > div.dropdown > .dropdown-menu input {
+  font-size: 12px !important;
+  max-width: 180px;
+  border: 1px solid #6d6d6d;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: white;
+}
+header
+  > div.mainHeader
+  > div.leftGroup
+  > div.dropdown
+  > .dropdown-menu
+  > .workspaces
+  > .yourWorkSpace {
+  position: relative;
+  text-align: left;
+  padding-left: 40px;
+  background-color: transparent !important;
+  text-decoration: none;
+  transition: 1s ease-in-out;
+}
+
+header
+  > div.mainHeader
+  > div.leftGroup
+  > div.dropdown
+  > .dropdown-menu
+  > .workspaces
+  > .yourWorkSpace
+  > span {
+  font-size: 16px;
+}
+header
+  > div.mainHeader
+  > div.leftGroup
+  > div.dropdown
+  > .dropdown-menu
+  > .workspaces
+  > .yourWorkSpace
+  > span
+  > i {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white !important;
+  font-size: 16px;
+}
+header
+  > div.mainHeader
+  > div.leftGroup
+  > div.dropdown
+  > .dropdown-menu
+  > .workspaces
+  .yourWorkSpace:hover {
+  background-color: #6d6d6d !important;
+}
+header
+  > div.mainHeader
+  > div.leftGroup
+  > div.dropdown
+  > .dropdown-menu
+  a:hover {
+  background-color: #6d6d6d;
+}
+header > div.mainHeader > div.leftGroup > div.dropdown > .dropdown-menu p {
+  font-size: 10px !important;
+  margin-bottom: 0px;
+}
+header > div.mainHeader > div.leftGroup > div.dropdown > .dropdown-menu h5 {
+  font-size: 18px;
+}
+
+header > div.mainHeader > div.leftGroup > div.dropdown > .dropdown-menu img {
+  width: 140px;
+}
+
+header > div.mainHeader > div.leftGroup > div.dropdown > .dropdown-menu p {
+  font-size: 12px;
+  text-align: justify;
+}
+
+header > div.mainHeader > div.leftGroup > div.dropdown > .dropdown-menu button {
+  font-size: 12px !important;
+  background-color: #3b3b3b !important;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+header > div.mainHeader > div.searchContainer {
+  background-color: #212121;
+  border: 1px solid #6d6d6d;
+  border-radius: 4px;
+  cursor: text;
+  font-size: 14px;
+  color: #6d6d6d;
+}
+
+/* header>div.mainHeader>div.rightGroup {}
+
+header>div.mainHeader>div.rightGroup>div.dropdown {}
+
+header>div.mainHeader>div.rightGroup>a {} */
