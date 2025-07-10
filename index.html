@@ -5,26 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Postman Clone</title>
 
-    <!-- Bootstrap CDN -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
+    <!-- Bootstrap Link -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Bootstrap Icons CDN -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
-
-    <!-- Google Font Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
     />
 
     <!-- Fontawesome CDN -->
@@ -37,16 +24,16 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="layout.css" />
-    <link rel="stylesheet" href="common.css" />
-    <link rel="stylesheet" href="fonts.css" />
-    <link rel="stylesheet" href="buttons.css" />
-    <link rel="stylesheet" href="utils.css" />
-    <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="sidebar.css" />
-    <link rel="stylesheet" href="rightmenu.css" />
-    <link rel="stylesheet" href="./footer.css" />
-    <link rel="stylesheet" href="./splitter.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/common.css" />
+    <link rel="stylesheet" href="./assets/css/fonts.css" />
+    <link rel="stylesheet" href="./assets/css/buttons.css" />
+    <link rel="stylesheet" href="./assets/css/utils.css" />
+    <link rel="stylesheet" href="./assets/css/header.css" />
+    <link rel="stylesheet" href="./assets/css/sidebar.css" />
+    <link rel="stylesheet" href="./assets/css/rightmenu.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/splitter.css" />
   </head>
 
   <body class="vh-100 d-flex flex-column">
@@ -262,7 +249,10 @@
           <div
             class="emptyContent d-flex flex-column gap-3 align-items-center py-5 px-2"
           >
-            <img src="images/illustration-no-history.svg" alt="Empty Image" />
+            <img
+              src="./assets/images/illustration-no-history.svg"
+              alt="Empty Image"
+            />
             <h6>Time to send your first request</h6>
             <p class="text-center">
               All the requests you send will be stored in History. Sign in or
@@ -274,7 +264,7 @@
         <div class="footer d-flex gap-3 align-items-start p-3">
           <img
             class="bgLightGray p-2 rounded-1"
-            src="images/aether.svg"
+            src="./assets/images/aether.svg"
             alt="Icon"
           />
           <div>
@@ -409,14 +399,14 @@
               <div class="header d-flex justify-content-between">
                 <div class="d-flex align-items-center gap-2">
                   <div class="requestType">
-                    <img src="images/http.svg" alt="Request Type" />
+                    <img src="./assets/images/http.svg" alt="Request Type" />
                   </div>
                   <p class="requestTitle inter-6 mb-0">Untitled Request</p>
                 </div>
                 <button
                   class="btn hoverBgLightGray d-flex align-items-center gap-2 p-1"
                 >
-                  <img src="images/save.svg" alt="Save Button" />
+                  <img src="./assets/images/save.svg" alt="Save Button" />
                   <span class="text-secondary">Save</span>
                 </button>
               </div>
@@ -565,7 +555,7 @@
                 <div
                   class="emptyContent d-flex flex-column align-items-center justify-content-middle gap-4"
                 >
-                  <img src="images/emptyresponse.svg" alt="Empty" />
+                  <img src="./assets/images/emptyresponse.svg" alt="Empty" />
                   <p class="text-secondary">
                     Enter the URL and click Send to get a response
                   </p>
@@ -578,7 +568,7 @@
               <i class="bi bi-code-slash"></i>
             </button>
             <button class="btn hoverBgLightGray rightBarTemplatesButton">
-              <img src="images/templates.svg" alt="Templates" />
+              <img src="./assets/images/templates.svg" alt="Templates" />
             </button>
           </div>
         </div>
@@ -610,20 +600,16 @@
     </footer>
 
     <!-- Header.js -->
-    <script src="./header.js"></script>
+    <script src="./assets/js/header.js"></script>
 
-    <!-- Bootstrap CDN -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Bootstrap  -->
+    <script src="./assets/js/bootstrap.bundle.js"></script>
 
     <!-- Tippy Tooltip CDN -->
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
-    <script src="tooltips.js"></script>
 
-    <script src="splitter.js"></script>
+    <script src="./assets/js/tooltips.js"></script>
+    <script src="./assets/js/splitter.js"></script>
   </body>
 </html>
