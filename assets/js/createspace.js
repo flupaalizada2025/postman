@@ -12,13 +12,12 @@ let step1 = document.getElementById("step1");
 let step2 = document.getElementById("step2");
 
 function nextButton() {
-  // Options classnames change event
-  // if (data.option !== " ") {
-  //   alert("Please, fill the type");
-  // } else {
-  step1.classList.add("d-none");
-  step2.classList.remove("d-none");
-  // }
+  if (data.option !== "") {
+    step1.classList.add("d-none");
+    step2.classList.remove("d-none");
+  } else {
+    alert("Fill your workspace type");
+  }
 }
 
 // Option buttons
