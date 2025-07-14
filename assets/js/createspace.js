@@ -94,4 +94,4 @@ typeBtns[2].addEventListener("click", () => {
 // AcsesBtn
 let internalAcses = document.querySelectorAll(".internalAcses");
 
-console.log(internalAcses);
+// console.log(internalAcses);

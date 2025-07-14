@@ -74,21 +74,21 @@ label {
   font-size: 12px;
 }
 
-#step2Buttons button:first-child{
+#step2Buttons button:first-child {
   background-color: rgb(107, 107, 107);
 }
-#step2Buttons button:last-child{
+#step2Buttons button:last-child {
   background-color: #ff6c37;
 }
-.internalAcses #everone{
+.internalAcses #everone {
   font-size: 4px;
   font-weight: bold;
 }
-#typeBtn:hover{
+#typeBtn:hover {
   opacity: 0.9;
 }
 
-.fs-7{
+.fs-7 {
   font-size: 0.75rem;
 }
 /* Media query's */
