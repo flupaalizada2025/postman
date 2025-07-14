@@ -321,6 +321,7 @@
                 aria-describedby="visible-addon"
                 class="text-light rounded border-1"
                 id="name"
+                onkeyup="workspaceName()"
               />
             </div>
             <div class="d-flex flex-column gap-2">
@@ -330,7 +331,9 @@
                 class="w-100 bg-transparent d-flex gap-2 p-3 button rounded-4"
                 id="typeBtn"
               >
-                <img src="" alt="" />
+                <div class="text-light">
+                  <i class="fa-solid fa-users"></i>
+                </div>
                 <div class="d-flex flex-column">
                   <h6 class="text-light text-start">Internal</h6>
                   <p>Build and test APIs within your team</p>
@@ -339,9 +342,10 @@
               <button
                 class="w-100 bg-transparent d-flex gap-2 p-3 button rounded-4 disabled"
                 id="typeBtn"
-                disabled
               >
-                <img src="" alt="" />
+                <div class="text-light">
+                  <i class="fa-solid fa-handshake"></i>
+                </div>
                 <div class="d-flex flex-column">
                   <h6 class="text-light text-start">Partner</h6>
                   <p>Share APIs securely with trusted partners</p>
@@ -361,14 +365,57 @@
                 </div>
               </button>
             </div>
-            <div>
+            <div id="acsesProperty">
               <p>Manage access</p>
-              <div class="form-check d-flex gap-2 align-items-center mt-2">
-                <input class="form-check-input" type="radio" id="everyone" />
-                <label class="form-check-label" for="everone"
-                  >Everyone in Aladdin</label
+              <div
+                class="form-check d-flex gap-2 align-items-center mt-2 align-items-lg-center internalAcses"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="everyone"
+                  name="everyone"
+                />
+                <div class="d-flex flex-column">
+                  <label class="form-check-label" for="everyone"
+                    >Everyone in Flup Agency</label
+                  >
+                  <p>1 Member</p>
+                </div>
+              </div>
+              <div
+                class="form-check d-flex gap-2 align-items-center mt-2 internalAcses"
+              >
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="only"
+                  name="only"
+                />
+                <label class="form-check-label" for="only"
+                  >Only you and invited people</label
                 >
               </div>
+            </div>
+            <div id="acsesProperty" class="d-none"></div>
+            <div
+              id="acsesProperty"
+              class="w-100 p-3 bg-primary text-center fs-7 d-none"
+            >
+              All data in this workspace will be made public.
+            </div>
+            <div class="d-flex gap-2 justify-content-end" id="step2Buttons">
+              <button class="text-light rounded pt-1 pb-1 pe-2 ps-2 border-0">
+                <a href="./createspace.html"> Back </a>
+              </button>
+              <button
+                class="text-light rounded pt-1 pb-1 pe-2 ps-2 border-0 disabled"
+                id="createButton"
+              >
+               <a href="./index.html">
+                 Create
+               </a>
+              </button>
             </div>
           </div>
         </div>
