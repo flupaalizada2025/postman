@@ -1,7 +1,7 @@
 body > main > aside.sidebar {
   border-right: 1px solid #383838;
   width: 400px;
-  background-color:#262626;
+  background-color: #262626;
   color: white;
 }
 
@@ -142,7 +142,7 @@ body
 body > main > aside.sidebar > div.content > div.emptyContent > img {
 } */
 
-body > main > aside.sidebar > div.content > div.emptyContent > h6 {
+/* body > main > aside.sidebar > div.content > div.emptyContent > h6 {
   font-size: 14px;
 }
 
@@ -176,4 +176,33 @@ body > main > aside.sidebar > div.footer button {
 
 body > main > aside.sidebar > div.footer button:hover {
   border-color: gray;
+} */
+
+/* -------- Custom Classses -------- */
+
+.content .contentLeftSide {
+  width: 80px;
+  border-color: #303030 !important;
+}
+.content .contentLeftSide button {
+  font-size: 10px;
+}
+.content .contentLeftSide button.active {
+  background-color: #3b3b3b !important;
+  color: white !important;
+}
+.content .contentLeftSide img {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.content .contentLeftSide button img,
+#historyIcon {
+  color: #6a6a6a !important;
+  width: 16px;
+  height: 16px;
+}
+.content .contentLeftSide button:hover{
+  background-color: #6a6a6a !important;
+  color: white !important;
 }

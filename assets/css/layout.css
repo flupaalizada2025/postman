@@ -10,8 +10,11 @@ body > main {
   border-bottom: 1px solid #383838;
 }
 
+
+
+/* Edit */
 body > main > aside.sidebar {
-  max-width: 400px;
+  /* max-width: 400px; */
 }
 
 body > main > section.rightMenu {
