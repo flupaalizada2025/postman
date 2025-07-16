@@ -17,12 +17,11 @@
     />
 
     <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="./assets/css/fontawesome/all.min.css" />
+
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+      href="./assets/css/fontawesome/fontawesome.min.css"
     />
 
     <!-- CSS -->
@@ -36,16 +35,17 @@
     <link rel="stylesheet" href="./assets/css/rightmenu.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/splitter.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
   </head>
 
   <body class="vh-100 d-flex flex-column">
     <header class="d-flex flex-column gap-2 p-2">
-      <div class="topHeader d-flex gap-2">
+      <!-- <div class="topHeader d-flex gap-2">
         <a href="#" class="text-decoration-none">File</a>
         <a href="#" class="text-decoration-none">Edit</a>
         <a href="#" class="text-decoration-none">View</a>
         <a href="#" class="text-decoration-none">Help</a>
-      </div>
+      </div> -->
       <div class="mainHeader d-flex justify-content-between">
         <div class="leftGroup d-flex gap-2">
           <div class="dropdown">
@@ -197,13 +197,14 @@
         <div
           class="header d-flex justify-content-between align-items-center p-2"
         >
-          <h6 class="m-0">Flup's Workspace</h6>
+          <h6 class="m-0" id="workspaceName"></h6>
           <div class="buttons d-flex gap-2">
             <button class="btn bgLightGray rounded p-1 inter-5">New</button>
             <button class="btn bgLightGray rounded p-1 inter-5">Import</button>
           </div>
         </div>
-        <div class="content h-100">
+        <div class="content d-flex h-100">
+          <!-- LeftSide -->
           <div
             class="contentLeftSide vh-100 d-flex flex-column gap-3 border-end"
           >
@@ -257,81 +258,134 @@
               class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0"
             ></button>
           </div>
-        </div>
-        <!-- <div class="content p-2 flex-fill">
-          <div class="searchBar d-flex align-items-center gap-2">
-            <div class="search flex-fill">
-              <div class="input-group">
-                <span class="input-group-text tetext-light" id="search-icon">
-                  <i class="bi bi-filter"></i>
-                </span>
-                <input
-                  type="search"
-                  class="form-control bg-dark text-light"
-                  aria-label="Search"
-                  aria-describedby="search-icon"
-                />
-              </div>
+          <!-- RightSide -->
+          <div class="pe-3 ps-3">
+            <div class="d-flex gap-2 fs-3 align-items-center mt-3">
+              <i class="fa-solid fa-plus"></i>
+              <input
+                type="search"
+                id="searchCollectionInput"
+                class="input-group-text bg-transparent w-100 text-light text-start"
+                placeholder="Search Collections"
+                onkeyup="searchCollection()"
+              />
             </div>
-            <div class="button">
-              <div id="saveResponsesDropdown" class="dropdown">
-                <button
-                  class="btn border-0 hoverBgLightGray px-2"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  data-bs-auto-close="outside"
-                  aria-expanded="false"
+            <!-- No Collection -->
+            <div
+              class="d-none d-flex flex-column justify-content-center align-items-center gap-2 noCollectionResult"
+              id="noCollectionResult"
+            >
+              <img
+                src="https://postman.com/_aether-assets/illustrations/dark/illustration-search.svg"
+                alt="No Results"
+                class="pt-4"
+              />
+              <h5 id="notFoundText" class="text-center"></h5>
+              <p class="mb-4 text-center">
+                Please try again using different keywords, and don’t forget to
+                check for typos. You can search by names, urls and fork labels.
+              </p>
+            </div>
+            <!-- reove d-none -->
+            <div
+              class="emptyContent d-flex flex-column align-items-center gap-3 justify-content-center py-5 px-2 d-none"
+              id="emptyContent"
+            >
+              <img
+                src="https://skills-assets.pstmn.io/onboarding/GROWTH-48/collection-preview-without-access-dark.png"
+                alt="Empty Image"
+                width="200px"
+              />
+              <h6 class="text-center mb-1">
+                Create a collection for your requests
+              </h6>
+              <p class="text-center m-0 desc">
+                A collection lets you group related requests and easily set
+                common authorization, tests, scripts, and variables for all
+                requests in it.
+              </p>
+              <button
+                class="createCollectionButton btn bg-transparent text-light rounded-3"
+                id="createCollectionButton"
+              >
+                <a href="#" class="text-light inter-3 p-2">
+                  Create Collection</a
                 >
-                  <i class="bi bi-three-dots"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-start p-2">
-                  <div
-                    class="form-check form-switch d-flex align-items-center gap-2 mb-0 p-2 hoverBgLightGray rounded-1 cursor-pointer"
+              </button>
+            </div>
+            <!-- Collection Section -->
+            <div id="collectionContent" class="py-4">
+              <div class="accordion">
+                <div class="accordion-item bg-transparent border-0">
+                  <h2
+                    class="accordion-header text-light d-flex justify-content-between"
+                    id="headingOne"
                   >
-                    <label
-                      class="form-check-label text-nowrap order-1 cursor-pointer"
-                      for="saveResponesSwitch"
-                      >Save Responses</label
+                    <button
+                      class="accordion-button bg-transparent text-light border-0 fs-6 d-flex p-0 justify-content-between"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
                     >
-                    <input
-                      class="form-check-input order-2 cursor-pointer"
-                      type="checkbox"
-                      id="saveResponesSwitch"
-                    />
+                      New Collection
+                      <div class="ps-5">
+                        <a href="#" id="addRequest" class="px-2">
+                          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-light">
+                          <i class="fa-regular fa-star"></i>
+                        </a>
+                        <div class="otherMenu">
+                          <button class="dropbtn bg-transparent btn text-light">
+                            <i class="fa-solid fa-bars"></i>
+                          </button>
+                          <div
+                            class="dropdown-Content d-none bg-dark text-light d-flex gap-3 flex-column p-3"
+                          >
+                            <a href="#" id="addRequest">Add Request</a>
+                            <a href="#" id="addFolder">Add Folder</a>
+                            <a href="#" class="border-top border-bottom py-2"
+                              >Run</a
+                            >
+                            <a href="#">Share</a>
+                            <a href="#">Copy Link</a>
+                            <a href="#">Move</a>
+                            <a href="#" class="border-top border-bottom py-2"
+                              >Fork</a
+                            >
+                            <a href="#">Rename</a>
+                            <a href="#">Rename</a>
+                            <a href="#">Dublicate</a>
+                            <a href="#">Delete</a>
+                            <a href="#">More</a>
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show rounded-0 ms-2 h-auto"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div
+                      class="accordion-body text-light h-auto py-2 px-3 pe-5"
+                    >
+                      <p class="desc w-100" id="collectDesc">
+                        This collection is empty.
+                        <a href="#" class="text-primary">Add a request</a>
+                        to start working.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="emptyContent d-flex flex-column gap-3 align-items-center py-5 px-2"
-          >
-            <img
-              src="./assets/images/illustration-no-history.svg"
-              alt="Empty Image"
-            />
-            <h6>Time to send your first request</h6>
-            <p class="text-center">
-              All the requests you send will be stored in History. Sign in or
-              create an account to organize them in collections.
-            </p>
-            <a href="#" class="inter-5">Show me how</a>
-          </div>
         </div>
-        <div class="footer d-flex gap-3 align-items-start p-3">
-          <img
-            class="bgLightGray p-2 rounded-1"
-            src="./assets/images/aether.svg"
-            alt="Icon"
-          />
-          <div>
-            <h6>Create collections in Postman</h6>
-            <p>
-              Use collections to save your requests and share them with others.
-            </p>
-            <button class="btn text-light">Create a collection</button>
-          </div>
-        </div> -->
       </aside>
       <div
         class="splitter verticalSplitter"
@@ -371,7 +425,10 @@
             </div>
           </div>
           <div class="actions d-flex flex-fill p-1">
-            <button class="addRequest btn hoverBgLightGray">
+            <button
+              class="addRequest btn hoverBgLightGray"
+              onclick="addRequest()"
+            >
               <i class="bi bi-plus"></i>
             </button>
             <div class="dropdown">
@@ -658,11 +715,16 @@
       </div>
     </footer>
 
-    <!-- Header.js -->
+    <!-- External JS -->
     <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/index.js"></script>
 
     <!-- Bootstrap  -->
     <script src="./assets/js/bootstrap.bundle.js"></script>
+    <script
+      src="https://kit.fontawesome.com/853cb537d1.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- JQuery -->
     <script src="./assets/js/jquery.min.js"></script>
 
