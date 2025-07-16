@@ -67,8 +67,7 @@ let dropbtn = document.querySelector(".dropbtn");
 
 dropbtn.addEventListener("click", () => {
   let isOpen = false;
-  if ((isOpen = false)) {
-    isOpen = false;
+  if (isOpen = false) {
     dropdownContent.classList.add("d-none");
   } else {
     isOpen = true;
@@ -180,4 +179,6 @@ addFolder.addEventListener("click", () => {
 
   // Update localStorage
   localStorage.setItem("collectionData", JSON.stringify(collectionData));
+
+  renderrequst();
 });

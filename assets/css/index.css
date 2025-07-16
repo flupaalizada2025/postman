@@ -45,3 +45,11 @@ p.desc {
   color: white;
   background-color: #303030;
 }
+
+
+
+.accordion-collapse{
+  padding: 0 !important;
+  height: 580px !important;
+  overflow-y: scroll;
+}

@@ -192,7 +192,7 @@
       </div>
     </header>
 
-    <main class="flex-fill d-flex flex-row" style="overflow: hidden">
+    <main class="flex-fill d-flex flex-row">
       <aside class="sidebar d-flex flex-column">
         <div
           class="header d-flex justify-content-between align-items-center p-2"
@@ -337,15 +337,65 @@
                         <a href="#" class="text-light">
                           <i class="fa-regular fa-star"></i>
                         </a>
-                        <div class="otherMenu">
-                          <button class="dropbtn bg-transparent btn text-light">
+
+                        <div class="dropdown dropend">
+                          <button
+                            type="button"
+                            class="btn bg-transparent text-light dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                          >
+                            <i class="fa-solid fa-bars"></i>
+                          </button>
+                          <ul class="dropdown-menu gap-3">
+                            <li>
+                              <a class="dropdown-item" id="addRequest" href="#"
+                                >Add Request</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" id="addFolder" href="#"
+                                >Add Folder</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item border-top border-bottom py-2"
+                                >Run</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#" class="dropdown-item">Share</a>
+                            </li>
+                            <li>
+                              <a href="#" class="dropdown-item">Copy Link</a>
+                            </li>
+                            <li>
+                              <a href="#" class="dropdown-item">Move</a>
+                            </li>
+                            <li>
+                              <a href="#" class="border-top border-bottom py-2"
+                                >Fork</a
+                              >
+                            </li>
+                            <li><a href="#" class="dropdown-item">Rename</a></li>
+                            <li><a href="#" class="dropdown-item">Dublicate</a></li>
+                            <li><a href="#" class="dropdown-item">Delete</a></li>
+                            <li><a href="#" class="dropdown-item">More</a></li>
+                           
+                          </ul>
+                        </div>
+                        <!--  -->
+                        <div class="otherMenu d-none">
+                          <button
+                            class="dropbtn bg-transparent btn text-light dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                          >
                             <i class="fa-solid fa-bars"></i>
                           </button>
                           <div
                             class="dropdown-Content d-none bg-dark text-light d-flex gap-3 flex-column p-3"
                           >
-                            <a href="#" id="addRequest">Add Request</a>
-                            <a href="#" id="addFolder">Add Folder</a>
                             <a href="#" class="border-top border-bottom py-2"
                               >Run</a
                             >
