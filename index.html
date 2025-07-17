@@ -286,7 +286,7 @@
                 check for typos. You can search by names, urls and fork labels.
               </p>
             </div>
-            <!-- reove d-none -->
+            <!-- remove d-none -->
             <div
               class="emptyContent d-flex flex-column align-items-center gap-3 justify-content-center py-5 px-2 d-none"
               id="emptyContent"
@@ -315,8 +315,191 @@
             </div>
             <!-- Collection Section -->
             <div id="collectionContent" class="py-4">
-              <div class="accordion">
-                <div class="accordion-item bg-transparent border-0">
+              <details>
+                <summary 
+                  class="w-100 d-flex justify-content-between align-items-center"
+                >
+                  New Collection
+
+                  <div class="d-flex align-items-center">
+                    <a href="#" id="addRequest" class="px-2">
+                      <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-light">
+                      <i class="fa-regular fa-star"></i>
+                    </a>
+
+                    <div class="dropdown dropend">
+                      <button
+                        type="button"
+                        class="btn bg-transparent text-light dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                      >
+                        <i class="fa-solid fa-bars"></i>
+                      </button>
+                      <ul class="dropdown-menu gap-3 text-light">
+                        <li>
+                          <a
+                            class="dropdown-item text-light"
+                            id="addRequest"
+                            href="#"
+                            >Add Request</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item text-light"
+                            id="addFolder"
+                            href="#"
+                            >Add Folder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="dropdown-item text-light border-top border-bottom py-2"
+                            >Run</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item text-light">Share</a>
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item text-light"
+                            >Copy Link</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item text-light">Move</a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="dropdown-item text-light border-top border-bottom py-2"
+                            >Fork</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item text-light"
+                            >Rename</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item text-light"
+                            >Dublicate</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item text-light"
+                            >Delete</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item text-light">More</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </summary>
+                <p class="desc w-100" id="collectDesc">
+                  This collection is empty.
+                  <a href="#" class="text-primary">Add a request</a>
+                  to start working.
+                </p>
+              </details>
+              <!-- <div>
+                <a
+                  class="btn bg-transparent d-flex collectionNewButton text-light"
+                  data-bs-toggle="collapse"
+                  href="#multiCollapseExample1"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="multiCollapseExample1"
+                  >New Collection
+
+
+
+                  <div class="d-flex align-items-center hoverElements">
+                    <a href="#" id="addRequest" class="px-2">
+                      <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-light">
+                      <i class="fa-regular fa-star"></i>
+                    </a>
+
+                    <div class="dropdown dropend">
+                      <button
+                        type="button"
+                        class="btn bg-transparent text-light dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                      >
+                        <i class="fa-solid fa-bars"></i>
+                      </button>
+                      <ul class="dropdown-menu gap-3">
+                        <li>
+                          <a class="dropdown-item" id="addRequest" href="#"
+                            >Add Request</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" id="addFolder" href="#"
+                            >Add Folder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="dropdown-item border-top border-bottom py-2"
+                            >Run</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item">Share</a>
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item">Copy Link</a>
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item">Move</a>
+                        </li>
+                        <li>
+                          <a href="#" class="border-top border-bottom py-2"
+                            >Fork</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item">Rename</a>
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item">Dublicate</a>
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-item">Delete</a>
+                        </li>
+                        <li><a href="#" class="dropdown-item">More</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </a>
+                <div class="row">
+                  <div class="col">
+                    <div
+                      class="collapse multi-collapse"
+                      id="multiCollapseExample1"
+                    >
+                      <div class="card card-body bg-transparent">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Quisquam, libero maiores. Aut quia labore debitis
+                        officiis at minima aperiam tempora vitae, amet quae iure
+                        ipsam suscipit sapiente similique atque perspiciatis?
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- <div class="accordion"> -->
+              <!-- <div class="accordion-item bg-transparent border-0">
                   <h2
                     class="accordion-header text-light d-flex justify-content-between"
                     id="headingOne"
@@ -378,14 +561,18 @@
                                 >Fork</a
                               >
                             </li>
-                            <li><a href="#" class="dropdown-item">Rename</a></li>
-                            <li><a href="#" class="dropdown-item">Dublicate</a></li>
-                            <li><a href="#" class="dropdown-item">Delete</a></li>
+                            <li>
+                              <a href="#" class="dropdown-item">Rename</a>
+                            </li>
+                            <li>
+                              <a href="#" class="dropdown-item">Dublicate</a>
+                            </li>
+                            <li>
+                              <a href="#" class="dropdown-item">Delete</a>
+                            </li>
                             <li><a href="#" class="dropdown-item">More</a></li>
-                           
                           </ul>
                         </div>
-                        <!--  -->
                         <div class="otherMenu d-none">
                           <button
                             class="dropbtn bg-transparent btn text-light dropdown-toggle"
@@ -431,8 +618,8 @@
                       </p>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div> -->
+              <!-- </div> -->
             </div>
           </div>
         </div>

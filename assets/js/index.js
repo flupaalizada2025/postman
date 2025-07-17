@@ -61,21 +61,6 @@ function searchCollection() {
 // collectionContent Function
 function collectionContentFunction() {}
 
-// dropdown
-let dropdownContent = document.querySelector(".dropdown-Content");
-let dropbtn = document.querySelector(".dropbtn");
-
-dropbtn.addEventListener("click", () => {
-  let isOpen = false;
-  if (isOpen = false) {
-    dropdownContent.classList.add("d-none");
-  } else {
-    isOpen = true;
-    dropdownContent.classList.remove("d-none");
-    console.log(isOpen);
-  }
-});
-
 // Requset and folder body
 
 const collectDescElement = document.getElementById("collectDesc");

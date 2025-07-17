@@ -46,10 +46,24 @@ p.desc {
   background-color: #303030;
 }
 
-
-
-.accordion-collapse{
+.accordion-collapse {
   padding: 0 !important;
   height: 580px !important;
   overflow-y: scroll;
 }
+.dropdown-menu {
+  background-color: #212121;
+}
+.dropdown-menu li a:hover {
+  background-color: #8f8f8f !important;
+}
+
+/* .collectionNewButton{
+  position: relative;
+}
+.collectionNewButton .hoverElements{
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+/* Custom ScrollBar */
