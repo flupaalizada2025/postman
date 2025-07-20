@@ -1,975 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Postman Clone</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
 
-    <!-- Bootstrap Link -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Postman Clone</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
 
-    <!-- Bootstrap Icons CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
+  <!-- Bootstrap Link -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Fontawesome CDN -->
-    <link rel="stylesheet" href="./assets/css/fontawesome/all.min.css" />
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 
-    <link
-      rel="stylesheet"
-      href="./assets/css/fontawesome/fontawesome.min.css"
-    />
+  <!-- Fontawesome CDN -->
+  <link rel="stylesheet" href="./assets/css/fontawesome/all.min.css" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/layout.css" />
-    <link rel="stylesheet" href="./assets/css/common.css" />
-    <link rel="stylesheet" href="./assets/css/fonts.css" />
-    <link rel="stylesheet" href="./assets/css/buttons.css" />
-    <link rel="stylesheet" href="./assets/css/utils.css" />
-    <link rel="stylesheet" href="./assets/css/header.css" />
-    <link rel="stylesheet" href="./assets/css/sidebar.css" />
-    <link rel="stylesheet" href="./assets/css/rightmenu.css" />
-    <link rel="stylesheet" href="./assets/css/footer.css" />
-    <link rel="stylesheet" href="./assets/css/splitter.css" />
-    <link rel="stylesheet" href="./assets/css/index.css" />
-  </head>
+  <link rel="stylesheet" href="./assets/css/fontawesome/fontawesome.min.css" />
 
-  <body class="vh-100 d-flex flex-column">
-    <header class="d-flex flex-column gap-2 p-2">
-      <!-- <div class="topHeader d-flex gap-2">
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/layout.css" />
+  <link rel="stylesheet" href="./assets/css/common.css" />
+  <link rel="stylesheet" href="./assets/css/fonts.css" />
+  <link rel="stylesheet" href="./assets/css/buttons.css" />
+  <link rel="stylesheet" href="./assets/css/utils.css" />
+  <link rel="stylesheet" href="./assets/css/header.css" />
+  <link rel="stylesheet" href="./assets/css/sidebar.css" />
+  <link rel="stylesheet" href="./assets/css/rightmenu.css" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="./assets/css/splitter.css" />
+  <link rel="stylesheet" href="./assets/css/index.css" />
+</head>
+
+<body class="vh-100 d-flex flex-column">
+  <header class="d-flex flex-column gap-2 p-2">
+    <!-- <div class="topHeader d-flex gap-2">
         <a href="#" class="text-decoration-none">File</a>
         <a href="#" class="text-decoration-none">Edit</a>
         <a href="#" class="text-decoration-none">View</a>
         <a href="#" class="text-decoration-none">Help</a>
       </div> -->
-      <div class="mainHeader d-flex justify-content-between">
-        <div class="leftGroup d-flex gap-2">
-          <div class="dropdown">
-            <a href="#" class="btn border-0 hoverBgLightGray text-light"
-              >Home</a
-            >
-            <button
-              class="btn btn-dark dropdown-toggle bg-transparent border-0 shadow-none hoverBgLightGray"
-              type="button"
-              data-bs-toggle="dropdown"
-              data-bs-auto-close="outside"
-              aria-expanded="false"
-            >
-              Workspaces
-            </button>
+    <div class="mainHeader d-flex justify-content-between">
+      <div class="leftGroup d-flex gap-2">
+        <div class="dropdown">
+          <a href="#" class="btn border-0 hoverBgLightGray text-light">Home</a>
+          <button class="btn btn-dark dropdown-toggle bg-transparent border-0 shadow-none hoverBgLightGray"
+            type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+            Workspaces
+          </button>
 
-            <div class="dropdown-menu dropdownContent">
-              <div class="d-flex workspaceBtns">
-                <input
-                  type="search"
-                  class="form-control bg-dark text-light"
-                  placeholder="Search Workspaces"
-                  id="searchWorkspace"
-                  onkeyup="search()"
-                />
-                <button class="bg-dark text-light">
-                  <a href="./createspace.html">Create Workspace</a>
-                </button>
-              </div>
-
-              <div class="workspaces mt-2 ps-4">
-                <p class="d-flex flex-column">Recently visited</p>
-                <button class="text-light yourWorkSpace w-100 mt-1">
-                  <span id="resultBtn">
-                    Flup's Workspace
-                    <i class="fa-solid fa-users"></i>
-                  </span>
-                </button>
-              </div>
-
-              <div class="workspaces mt-2 ps-4">
-                <p class="d-flex flex-column">Recently visited</p>
-                <button class="text-light yourWorkSpace w-100 mt-1">
-                  <span id="resultBtn">
-                    My Workspace
-                    <i class="fa-solid fa-lock"></i>
-                  </span>
-                </button>
-              </div>
-
-              <!-- No results found message -->
-              <div
-                class="d-flex flex-column justify-content-center align-items-center gap-2"
-                id="noResultDiv"
-              >
-                <img
-                  src="https://postman.com/_aether-assets/illustrations/dark/illustration-search.svg"
-                  alt="No Results"
-                  class="pt-4"
-                />
-                <h5>No workspaces found</h5>
-                <p class="mb-4">
-                  Check your spelling or try a different search term.
-                </p>
-              </div>
-
-              <div
-                class="d-flex align-items-center gap-2 viewAll pt-1 pe-4 ps-4"
-              >
-                <i class="fa-solid fa-border-all"></i>View all Workspaces
-              </div>
+          <div class="dropdown-menu dropdownContent">
+            <div class="d-flex workspaceBtns">
+              <input type="search" class="form-control bg-dark text-light" placeholder="Search Workspaces"
+                id="searchWorkspace" onkeyup="search()" />
+              <button class="bg-dark text-light">
+                <a href="./createspace.html">Create Workspace</a>
+              </button>
             </div>
-            <a href="#" class="btn border-0 hoverBgLightGray text-light"
-              >Explore</a
-            >
-          </div>
-        </div>
 
-        <div class="searchContainer d-flex gap-2 py-2 px-5 text-secondary">
-          <i class="bi bi-search"></i>
-          <span>Search Postman</span>
-        </div>
+            <div class="workspaces mt-2 ps-4">
+              <p class="d-flex flex-column">Recently visited</p>
+              <button class="text-light yourWorkSpace w-100 mt-1">
+                <span id="resultBtn">
+                  Flup's Workspace
+                  <i class="fa-solid fa-users"></i>
+                </span>
+              </button>
+            </div>
 
-        <div class="rightGroup d-flex gap-2">
-          <div class="dropdown">
-            <button
-              class="btn border-0 hoverBgLightGray"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="bi bi-gear"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-end p-2">
-              <div class="d-flex flex-column gap-1">
-                <button
-                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                >
-                  Settings
-                </button>
-                <button
-                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                >
-                  Release Notes
-                </button>
-                <button
-                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                >
-                  Learning Center
-                </button>
-                <button
-                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                >
-                  Support Center
-                </button>
-                <button
-                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                >
-                  Security
-                </button>
-                <button
-                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                >
-                  Privacy Policy
-                </button>
-                <button
-                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                >
-                  Terms
-                </button>
-                <button
-                  class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                >
-                  @getpostman
-                </button>
-              </div>
+            <div class="workspaces mt-2 ps-4">
+              <p class="d-flex flex-column">Recently visited</p>
+              <button class="text-light yourWorkSpace w-100 mt-1">
+                <span id="resultBtn">
+                  My Workspace
+                  <i class="fa-solid fa-lock"></i>
+                </span>
+              </button>
+            </div>
+
+            <!-- No results found message -->
+            <div class="d-flex flex-column justify-content-center align-items-center gap-2" id="noResultDiv">
+              <img src="https://postman.com/_aether-assets/illustrations/dark/illustration-search.svg" alt="No Results"
+                class="pt-4" />
+              <h5>No workspaces found</h5>
+              <p class="mb-4">
+                Check your spelling or try a different search term.
+              </p>
+            </div>
+
+            <div class="d-flex align-items-center gap-2 viewAll pt-1 pe-4 ps-4">
+              <i class="fa-solid fa-border-all"></i>View all Workspaces
             </div>
           </div>
-
-          <a href="#" class="btn bgLightGray">Sign in</a>
-
-          <a href="#" class="btn bgOrange text-white">Create Account</a>
+          <a href="#" class="btn border-0 hoverBgLightGray text-light">Explore</a>
         </div>
       </div>
-    </header>
 
-    <main class="flex-fill d-flex flex-row">
-      <aside class="sidebar d-flex flex-column">
-        <div
-          class="header d-flex justify-content-between align-items-center p-2"
-        >
-          <h6 class="m-0" id="workspaceName"></h6>
-          <div class="buttons d-flex gap-2">
-            <button class="btn bgLightGray rounded p-1 inter-5">New</button>
-            <button class="btn bgLightGray rounded p-1 inter-5">Import</button>
-          </div>
-        </div>
-        <div class="content d-flex h-100">
-          <!-- LeftSide -->
-          <div
-            class="contentLeftSide vh-100 d-flex flex-column gap-3 border-end"
-          >
-            <button
-              class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0 active"
-            >
-              <img
-                src="./assets/images/aether.svg"
-                class="text-light"
-                alt="aether"
-              />
-              Collections
-            </button>
-            <button
-              class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0"
-            >
-              <img
-                src="./assets/images/svgs/nfc.svg"
-                class="bg-light"
-                alt="environments-nfc"
-              />
+      <div class="searchContainer d-flex gap-2 py-2 px-5 text-secondary">
+        <i class="bi bi-search"></i>
+        <span>Search Postman</span>
+      </div>
 
-              Environments
-            </button>
-            <button
-              class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0"
-            >
-              Flows
-            </button>
-            <button
-              class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0"
-            >
-              <!-- History Icon -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 32 32"
-                id="historyIcon"
-              >
-                <path
-                  d="M16 1a14.86 14.86 0 0 0-9.33 3.26L6 4.83V2a1 1 0 0 0-2 0v5a1 1 0 0 0 1 1h5a1 1 0 0 0 0-2H7.71l.23-.2A12.86 12.86 0 0 1 16 3 13 13 0 1 1 3 16a1 1 0 0 0-2 0A15 15 0 1 0 16 1z"
-                  style="fill: #fff"
-                />
-                <path
-                  d="m19.79 21.21-4.5-4.5A1 1 0 0 1 15 16V7a1 1 0 0 1 2 0v8.59l4.21 4.2a1 1 0 0 1-1.42 1.42z"
-                  style="fill: #fff"
-                />
-              </svg>
-              History
-            </button>
-            <button
-              class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0"
-            ></button>
-          </div>
-          <!-- RightSide -->
-          <div class="pe-3 ps-3">
-            <div class="d-flex gap-2 fs-3 align-items-center mt-3">
-              <i class="fa-solid fa-plus"></i>
-              <input
-                type="search"
-                id="searchCollectionInput"
-                class="input-group-text bg-transparent w-100 text-light text-start"
-                placeholder="Search Collections"
-                onkeyup="searchCollection()"
-              />
-            </div>
-            <!-- No Collection -->
-            <div
-              class="d-none d-flex flex-column justify-content-center align-items-center gap-2 noCollectionResult"
-              id="noCollectionResult"
-            >
-              <img
-                src="https://postman.com/_aether-assets/illustrations/dark/illustration-search.svg"
-                alt="No Results"
-                class="pt-4"
-              />
-              <h5 id="notFoundText" class="text-center"></h5>
-              <p class="mb-4 text-center">
-                Please try again using different keywords, and don’t forget to
-                check for typos. You can search by names, urls and fork labels.
-              </p>
-            </div>
-            <!-- remove d-none -->
-            <div
-              class="emptyContent d-flex flex-column align-items-center gap-3 justify-content-center py-5 px-2 d-none"
-              id="emptyContent"
-            >
-              <img
-                src="https://skills-assets.pstmn.io/onboarding/GROWTH-48/collection-preview-without-access-dark.png"
-                alt="Empty Image"
-                width="200px"
-              />
-              <h6 class="text-center mb-1">
-                Create a collection for your requests
-              </h6>
-              <p class="text-center m-0 desc">
-                A collection lets you group related requests and easily set
-                common authorization, tests, scripts, and variables for all
-                requests in it.
-              </p>
-              <button
-                class="createCollectionButton btn bg-transparent text-light rounded-3"
-                id="createCollectionButton"
-              >
-                <a href="#" class="text-light inter-3 p-2">
-                  Create Collection</a
-                >
+      <div class="rightGroup d-flex gap-2">
+        <div class="dropdown">
+          <button class="btn border-0 hoverBgLightGray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-gear"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end p-2">
+            <div class="d-flex flex-column gap-1">
+              <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                Settings
               </button>
-            </div>
-            <!-- Collection Section -->
-            <div id="collectionContent" class="py-4">
-              <details>
-                <summary 
-                  class="w-100 d-flex justify-content-between align-items-center"
-                >
-                  New Collection
-
-                  <div class="d-flex align-items-center">
-                    <a href="#" id="addRequest" class="px-2">
-                      <i class="fa-solid fa-plus" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="text-light">
-                      <i class="fa-regular fa-star"></i>
-                    </a>
-
-                    <div class="dropdown dropend">
-                      <button
-                        type="button"
-                        class="btn bg-transparent text-light dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        <i class="fa-solid fa-bars"></i>
-                      </button>
-                      <ul class="dropdown-menu gap-3 text-light">
-                        <li>
-                          <a
-                            class="dropdown-item text-light"
-                            id="addRequest"
-                            href="#"
-                            >Add Request</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item text-light"
-                            id="addFolder"
-                            href="#"
-                            >Add Folder</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="dropdown-item text-light border-top border-bottom py-2"
-                            >Run</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item text-light">Share</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item text-light"
-                            >Copy Link</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item text-light">Move</a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="dropdown-item text-light border-top border-bottom py-2"
-                            >Fork</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item text-light"
-                            >Rename</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item text-light"
-                            >Dublicate</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item text-light"
-                            >Delete</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item text-light">More</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </summary>
-                <p class="desc w-100" id="collectDesc">
-                  This collection is empty.
-                  <a href="#" class="text-primary">Add a request</a>
-                  to start working.
-                </p>
-              </details>
-              <!-- <div>
-                <a
-                  class="btn bg-transparent d-flex collectionNewButton text-light"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample1"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample1"
-                  >New Collection
-
-
-
-                  <div class="d-flex align-items-center hoverElements">
-                    <a href="#" id="addRequest" class="px-2">
-                      <i class="fa-solid fa-plus" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="text-light">
-                      <i class="fa-regular fa-star"></i>
-                    </a>
-
-                    <div class="dropdown dropend">
-                      <button
-                        type="button"
-                        class="btn bg-transparent text-light dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        <i class="fa-solid fa-bars"></i>
-                      </button>
-                      <ul class="dropdown-menu gap-3">
-                        <li>
-                          <a class="dropdown-item" id="addRequest" href="#"
-                            >Add Request</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item" id="addFolder" href="#"
-                            >Add Folder</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="dropdown-item border-top border-bottom py-2"
-                            >Run</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Share</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Copy Link</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Move</a>
-                        </li>
-                        <li>
-                          <a href="#" class="border-top border-bottom py-2"
-                            >Fork</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Rename</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Dublicate</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Delete</a>
-                        </li>
-                        <li><a href="#" class="dropdown-item">More</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </a>
-                <div class="row">
-                  <div class="col">
-                    <div
-                      class="collapse multi-collapse"
-                      id="multiCollapseExample1"
-                    >
-                      <div class="card card-body bg-transparent">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Quisquam, libero maiores. Aut quia labore debitis
-                        officiis at minima aperiam tempora vitae, amet quae iure
-                        ipsam suscipit sapiente similique atque perspiciatis?
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-
-              <!-- <div class="accordion"> -->
-              <!-- <div class="accordion-item bg-transparent border-0">
-                  <h2
-                    class="accordion-header text-light d-flex justify-content-between"
-                    id="headingOne"
-                  >
-                    <button
-                      class="accordion-button bg-transparent text-light border-0 fs-6 d-flex p-0 justify-content-between"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      New Collection
-                      <div class="ps-5">
-                        <a href="#" id="addRequest" class="px-2">
-                          <i class="fa-solid fa-plus" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="text-light">
-                          <i class="fa-regular fa-star"></i>
-                        </a>
-
-                        <div class="dropdown dropend">
-                          <button
-                            type="button"
-                            class="btn bg-transparent text-light dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                          >
-                            <i class="fa-solid fa-bars"></i>
-                          </button>
-                          <ul class="dropdown-menu gap-3">
-                            <li>
-                              <a class="dropdown-item" id="addRequest" href="#"
-                                >Add Request</a
-                              >
-                            </li>
-                            <li>
-                              <a class="dropdown-item" id="addFolder" href="#"
-                                >Add Folder</a
-                              >
-                            </li>
-                            <li>
-                              <a
-                                href="#"
-                                class="dropdown-item border-top border-bottom py-2"
-                                >Run</a
-                              >
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Share</a>
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Copy Link</a>
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Move</a>
-                            </li>
-                            <li>
-                              <a href="#" class="border-top border-bottom py-2"
-                                >Fork</a
-                              >
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Rename</a>
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Dublicate</a>
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Delete</a>
-                            </li>
-                            <li><a href="#" class="dropdown-item">More</a></li>
-                          </ul>
-                        </div>
-                        <div class="otherMenu d-none">
-                          <button
-                            class="dropbtn bg-transparent btn text-light dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                          >
-                            <i class="fa-solid fa-bars"></i>
-                          </button>
-                          <div
-                            class="dropdown-Content d-none bg-dark text-light d-flex gap-3 flex-column p-3"
-                          >
-                            <a href="#" class="border-top border-bottom py-2"
-                              >Run</a
-                            >
-                            <a href="#">Share</a>
-                            <a href="#">Copy Link</a>
-                            <a href="#">Move</a>
-                            <a href="#" class="border-top border-bottom py-2"
-                              >Fork</a
-                            >
-                            <a href="#">Rename</a>
-                            <a href="#">Rename</a>
-                            <a href="#">Dublicate</a>
-                            <a href="#">Delete</a>
-                            <a href="#">More</a>
-                          </div>
-                        </div>
-                      </div>
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse show rounded-0 ms-2 h-auto"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div
-                      class="accordion-body text-light h-auto py-2 px-3 pe-5"
-                    >
-                      <p class="desc w-100" id="collectDesc">
-                        This collection is empty.
-                        <a href="#" class="text-primary">Add a request</a>
-                        to start working.
-                      </p>
-                    </div>
-                  </div>
-                </div> -->
-              <!-- </div> -->
+              <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                Release Notes
+              </button>
+              <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                Learning Center
+              </button>
+              <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                Support Center
+              </button>
+              <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                Security
+              </button>
+              <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                Privacy Policy
+              </button>
+              <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                Terms
+              </button>
+              <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                @getpostman
+              </button>
             </div>
           </div>
         </div>
-      </aside>
-      <div
-        class="splitter verticalSplitter"
-        data-direction="vertical"
-        data-prevmin="350"
-        data-nextmin="700"
-        data-collapsePrevCallback="collapsePrev"
-        data-expandPrevCallback="expandPrev"
-        data-collapseNextCallback="collapseNext"
-        data-expandNextCallback="expandNext"
-      ></div>
-      <section
-        class="rightMenu flex-fill d-flex flex-column align-items-stretch"
-      >
-        <div class="tabContainer d-flex">
-          <div class="tabs d-flex">
-            <div class="tab p-2 d-flex align-items-center gap-2">
-              <span class="method getMethodColor inter-6">GET</span>
-              <span class="title flex-fill">Untitled Request</span>
-              <button class="closeRequest btn hoverBgLightGray">
-                <i class="bi bi-x"></i>
-              </button>
-            </div>
-            <div class="tab p-2 d-flex align-items-center gap-2 active">
-              <span class="method getMethodColor inter-6">GET</span>
-              <span class="title flex-fill">Untitled Request</span>
-              <button class="closeRequest btn hoverBgLightGray">
-                <i class="bi bi-x"></i>
-              </button>
-            </div>
-            <div class="tab p-2 d-flex align-items-center gap-2">
-              <span class="method deleteMethodColor inter-6">Delete</span>
-              <span class="title flex-fill">Untitled Request</span>
-              <button class="closeRequest btn hoverBgLightGray">
-                <i class="bi bi-x"></i>
-              </button>
-            </div>
-          </div>
-          <div class="actions d-flex flex-fill p-1">
-            <button
-              class="addRequest btn hoverBgLightGray"
-              onclick="addRequest()"
-            >
-              <i class="bi bi-plus"></i>
-            </button>
-            <div class="dropdown">
-              <button
-                class="btn border-0 hoverBgLightGray px-2"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                <i class="bi bi-three-dots"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end p-2">
-                <div class="d-flex flex-column gap-1">
-                  <div class="dropdown dropend recentlyClosedTabs">
-                    <button
-                      class="dropdown-toggle btn hoverBgLightGray w-100 text-start"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Recently Closed Tabs
-                    </button>
-                    <div class="dropdown-menu p-2">
-                      <div class="d-flex flex-column gap-1">
-                        <button
-                          class="btn hoverBgLightGray recentClosedRequest w-100"
-                        >
-                          <span class="method getMethodColor inter-6">GET</span>
-                          <span class="title">Untitled Request</span>
-                        </button>
-                        <button
-                          class="btn hoverBgLightGray recentClosedRequest w-100"
-                        >
-                          <span class="method getMethodColor inter-6">GET</span>
-                          <span class="title">Untitled Request</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <button
-                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                  >
-                    Duplicate Selected Tab
-                  </button>
-                  <hr class="dropdown-divider" />
-                  <button
-                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                  >
-                    Close Selected Tab
-                  </button>
-                  <button
-                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                  >
-                    Force Close Selected Tab
-                  </button>
-                  <button
-                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                  >
-                    Close All but Selected Tab
-                  </button>
-                  <button
-                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                  >
-                    Close All Tabs
-                  </button>
-                  <button
-                    class="btn hoverBgLightGray w-100 text-start text-nowrap"
-                  >
-                    Force Close All Tabs
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex flex-fill">
-          <div class="requestArea d-flex flex-column flex-fill">
-            <div
-              class="requestContainer flex-fill p-2 d-flex flex-column gap-3"
-            >
-              <div class="header d-flex justify-content-between">
-                <div class="d-flex align-items-center gap-2">
-                  <div class="requestType">
-                    <img src="./assets/images/http.svg" alt="Request Type" />
-                  </div>
-                  <p class="requestTitle inter-6 mb-0 text-light">
-                    Untitled Request
-                  </p>
-                </div>
-                <button
-                  class="btn hoverBgLightGray d-flex align-items-center gap-2 p-1"
-                >
-                  <img src="./assets/images/save.svg" alt="Save Button" />
-                  <span class="text-secondary">Save</span>
-                </button>
-              </div>
-              <div class="searchBar d-flex gap-2">
-                <div class="searchBox flex-fill d-flex rounded-2">
-                  <div class="methodInput">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control border-0 getMethodColor"
-                        value="GET"
-                      />
-                      <button
-                        class="btn dropdown-toggle border-0 shadow-none text-light"
-                        type="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      ></button>
-                      <div class="dropdown-menu dropdown-menu-end p-2 bg-dark">
-                        <div class="d-flex flex-column methodMenu">
-                          <button
-                            class="btn hoverBgLightGray getMethodColor p-1 rounder-1 text-start"
-                          >
-                            GET
-                          </button>
-                          <button
-                            class="btn hoverBgLightGray postMethodColor p-1 rounder-1 text-start"
-                          >
-                            POST
-                          </button>
-                          <button
-                            class="btn hoverBgLightGray putMethodColor p-1 rounder-1 text-start"
-                          >
-                            PUT
-                          </button>
-                          <button
-                            class="btn hoverBgLightGray patchMethodColor p-1 rounder-1 text-start"
-                          >
-                            PATCH
-                          </button>
-                          <button
-                            class="btn hoverBgLightGray deleteMethodColor p-1 rounder-1 text-start"
-                          >
-                            DELETE
-                          </button>
-                          <button
-                            class="btn hoverBgLightGray headMethodColor p-1 rounder-1 text-start"
-                          >
-                            HEAD
-                          </button>
-                          <button
-                            class="btn hoverBgLightGray optionsMethodColor p-1 rounder-1 text-start"
-                          >
-                            OPTIONS
-                          </button>
-                        </div>
-                        <hr class="dropdown-divider" />
 
-                        <p class="text-secondary p-2 mb-0">Type a new method</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="urlInput flex-fill text-light">
-                    <input
-                      type="text"
-                      class="form-control border-0"
-                      placeholder="Enter URL or paste text"
-                    />
-                  </div>
-                </div>
-                <div class="action">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Send</button>
-                    <button
-                      type="button"
-                      class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <span class="visually-hidden">Send Dropdown</span>
+        <a href="#" class="btn bgLightGray">Sign in</a>
+
+        <a href="#" class="btn bgOrange text-white">Create Account</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-fill d-flex flex-row">
+    <aside class="sidebar d-flex flex-column">
+      <div class="header d-flex justify-content-between align-items-center p-2">
+        <h6 class="m-0" id="workspaceName"></h6>
+        <div class="buttons d-flex gap-2">
+          <button class="btn bgLightGray rounded p-1 inter-5">New</button>
+          <button class="btn bgLightGray rounded p-1 inter-5">Import</button>
+        </div>
+      </div>
+      <div class="content d-flex h-100">
+        <!-- LeftSide -->
+        <div class="contentLeftSide vh-100 d-flex flex-column gap-3 border-end">
+          <button class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0 active">
+            <img src="./assets/images/aether.svg" class="text-light" alt="aether" />
+            Collections
+          </button>
+          <button class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0">
+            <img src="./assets/images/svgs/nfc.svg" class="bg-light" alt="environments-nfc" />
+
+            Environments
+          </button>
+          <button class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0">
+            Flows
+          </button>
+          <button class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0">
+            <!-- History Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="historyIcon">
+              <path
+                d="M16 1a14.86 14.86 0 0 0-9.33 3.26L6 4.83V2a1 1 0 0 0-2 0v5a1 1 0 0 0 1 1h5a1 1 0 0 0 0-2H7.71l.23-.2A12.86 12.86 0 0 1 16 3 13 13 0 1 1 3 16a1 1 0 0 0-2 0A15 15 0 1 0 16 1z"
+                style="fill: #fff" />
+              <path d="m19.79 21.21-4.5-4.5A1 1 0 0 1 15 16V7a1 1 0 0 1 2 0v8.59l4.21 4.2a1 1 0 0 1-1.42 1.42z"
+                style="fill: #fff" />
+            </svg>
+            History
+          </button>
+          <button class="p-2 d-flex flex-column align-items-center gap-2 bg-transparent text-light border-0"></button>
+        </div>
+        <!-- RightSide -->
+        <div class="pe-3 ps-3 w-100">
+          <div class="d-flex gap-2 fs-3 align-items-center mt-3">
+            <i class="fa-solid fa-plus"></i>
+            <input type="search" id="searchCollectionInput"
+              class="input-group-text bg-transparent w-100 text-light text-start" placeholder="Search Collections"
+              onkeyup="searchCollection()" />
+          </div>
+          <!-- No Collection -->
+          <div class="d-none d-flex flex-column justify-content-center align-items-center gap-2 noCollectionResult"
+            id="noCollectionResult">
+            <img src="https://postman.com/_aether-assets/illustrations/dark/illustration-search.svg" alt="No Results"
+              class="pt-4" />
+            <h5 id="notFoundText" class="text-center"></h5>
+            <p class="mb-4 text-center">
+              Please try again using different keywords, and don’t forget to
+              check for typos. You can search by names, urls and fork labels.
+            </p>
+          </div>
+          <!-- remove d-none -->
+          <div class="emptyContent d-flex flex-column align-items-center gap-3 justify-content-center py-5 px-2 d-none"
+            id="emptyContent">
+            <img src="https://skills-assets.pstmn.io/onboarding/GROWTH-48/collection-preview-without-access-dark.png"
+              alt="Empty Image" width="200px" />
+            <h6 class="text-center mb-1">
+              Create a collection for your requests
+            </h6>
+            <p class="text-center m-0 desc">
+              A collection lets you group related requests and easily set
+              common authorization, tests, scripts, and variables for all
+              requests in it.
+            </p>
+            <button class="createCollectionButton btn bg-transparent text-light rounded-3" id="createCollectionButton">
+              <a href="#" class="text-light inter-3 p-2">
+                Create Collection</a>
+            </button>
+          </div>
+          <!-- Collection Section -->
+          <div id="collectionContent" class="py-4 w-100">
+            <details>
+              <summary class="w-100 d-flex justify-content-between align-items-center">
+                New Collection
+
+                <div class="d-flex align-items-center">
+                  <a href="#" id="addRequest" class="px-2">
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                  </a>
+                  <a href="#" class="text-light">
+                    <i class="fa-regular fa-star"></i>
+                  </a>
+
+                  <div class="dropdown dropend">
+                    <button type="button" class="btn bg-transparent text-light dropdown-toggle"
+                      data-bs-toggle="dropdown">
+                      <i class="fa-solid fa-bars"></i>
                     </button>
-                    <ul class="dropdown-menu p-2 bg-dark text-light">
-                      <button
-                        class="btn hoverBgLightGray text-nowrap p-2 text-light"
-                      >
-                        Send and Download
-                      </button>
+                    <ul class="dropdown-menu gap-3 text-light">
+                      <li>
+                        <a class="dropdown-item text-light" id="addRequest" href="#">Add Request</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-light" id="addFolder" href="#">Add Folder</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light border-top border-bottom py-2">Run</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light">Share</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light">Copy Link</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light">Move</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light border-top border-bottom py-2">Fork</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light">Rename</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light">Dublicate</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light">Delete</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown-item text-light">More</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
-              </div>
-              <div class="parameterTabs d-flex gap-4">
-                <a href="#" class="parameterTab inter-4 text-nowrap active"
-                  >Params</a
-                >
-                <a href="#" class="parameterTab inter-4 text-nowrap"
-                  >Authorization</a
-                >
-                <a href="#" class="parameterTab inter-4 text-nowrap">Headers</a>
-                <a href="#" class="parameterTab inter-4 text-nowrap">Body</a>
-                <a href="#" class="parameterTab inter-4 text-nowrap"
-                  >Pre-request Script</a
-                >
-                <a href="#" class="parameterTab inter-4 text-nowrap">Tests</a>
-                <a href="#" class="parameterTab inter-4 text-nowrap"
-                  >Settings</a
-                >
-                <span class="flex-fill"></span>
-                <a href="#" class="cookiesTab">Cookies</a>
-              </div>
-              <div class="tabContentContainer">
-                <div class="paramsTabContent">
-                  <h6 class="tabHeader">Query Params</h6>
-                  <div class="tabContent">
-                    <table class="w-100">
-                      <tr>
-                        <th style="min-width: 48px"></th>
-                        <th class="w-50">Key</th>
-                        <th class="w-50">Value</th>
-                        <th class="text-nowrap">
-                          <button class="btn p-0">Bulk Edit</button>
-                        </th>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td>Key</td>
-                        <td colspan="2">Value</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="splitter horizontalSplitter"
-              data-direction="horizontal"
-            ></div>
-            <div class="responseContainer p-2 d-flex flex-column">
-              <div
-                class="header d-flex justify-content-between text-secondary cursor-pointer"
-              >
-                <p>Response</p>
-                <i class="bi bi-chevron-down"></i>
-              </div>
-              <div class="content flex-fill">
-                <div
-                  class="emptyContent d-flex flex-column align-items-center justify-content-middle gap-4"
-                >
-                  <img src="./assets/images/emptyresponse.svg" alt="Empty" />
-                  <p class="text-secondary">
-                    Enter the URL and click Send to get a response
-                  </p>
-                </div>
-              </div>
-            </div>
+              </summary>
+              <p class="desc w-100" id="collectDesc">
+                This collection is empty.
+                <a href="#" class="text-primary">Add a request</a>
+                to start working.
+              </p>
+            </details>
           </div>
-          <div class="rightSidebar d-flex flex-column gap-2 p-2">
-            <button class="btn hoverBgLightGray rightBarCodeButton">
-              <i class="bi bi-code-slash"></i>
+        </div>
+      </div>
+    </aside>
+    <div class="splitter verticalSplitter" data-direction="vertical" data-prevmin="350" data-nextmin="700"
+      data-collapsePrevCallback="collapsePrev" data-expandPrevCallback="expandPrev"
+      data-collapseNextCallback="collapseNext" data-expandNextCallback="expandNext"></div>
+    <section class="rightMenu flex-fill d-flex flex-column align-items-stretch">
+      <div class="tabContainer d-flex">
+        <div class="tabs d-flex">
+          <div class="tab p-2 d-flex align-items-center gap-2">
+            <span class="method getMethodColor inter-6">GET</span>
+            <span class="title flex-fill">Untitled Request</span>
+            <button class="closeRequest btn hoverBgLightGray">
+              <i class="bi bi-x"></i>
             </button>
-            <button class="btn hoverBgLightGray rightBarTemplatesButton">
-              <img src="./assets/images/templates.svg" alt="Templates" />
+          </div>
+          <div class="tab p-2 d-flex align-items-center gap-2 active">
+            <span class="method getMethodColor inter-6">GET</span>
+            <span class="title flex-fill">Untitled Request</span>
+            <button class="closeRequest btn hoverBgLightGray">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+          <div class="tab p-2 d-flex align-items-center gap-2">
+            <span class="method deleteMethodColor inter-6">Delete</span>
+            <span class="title flex-fill">Untitled Request</span>
+            <button class="closeRequest btn hoverBgLightGray">
+              <i class="bi bi-x"></i>
             </button>
           </div>
         </div>
-      </section>
-    </main>
-
-    <footer class="d-flex justify-content-between py-1 px-2">
-      <div class="leftGroup d-flex gap-3">
-        <a href="#" class="hideSidebarButton">
-          <i class="bi bi-layout-text-sidebar"></i>
-        </a>
-        <a href="#" class="consoleButton">
-          <i class="bi bi-terminal"></i>
-          <span>Console</span></a
-        >
-        <a href="#" class="accountButton">
-          <i class="bi bi-cloud-slash"></i>
-          <span>Not connected to a Postman account</span>
-        </a>
+        <div class="actions d-flex flex-fill p-1">
+          <button class="addRequest btn hoverBgLightGray" onclick="addRequest()">
+            <i class="bi bi-plus"></i>
+          </button>
+          <div class="dropdown">
+            <button class="btn border-0 hoverBgLightGray px-2" type="button" data-bs-toggle="dropdown"
+              data-bs-auto-close="outside" aria-expanded="false">
+              <i class="bi bi-three-dots"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end p-2">
+              <div class="d-flex flex-column gap-1">
+                <div class="dropdown dropend recentlyClosedTabs">
+                  <button class="dropdown-toggle btn hoverBgLightGray w-100 text-start" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Recently Closed Tabs
+                  </button>
+                  <div class="dropdown-menu p-2">
+                    <div class="d-flex flex-column gap-1">
+                      <button class="btn hoverBgLightGray recentClosedRequest w-100">
+                        <span class="method getMethodColor inter-6">GET</span>
+                        <span class="title">Untitled Request</span>
+                      </button>
+                      <button class="btn hoverBgLightGray recentClosedRequest w-100">
+                        <span class="method getMethodColor inter-6">GET</span>
+                        <span class="title">Untitled Request</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                  Duplicate Selected Tab
+                </button>
+                <hr class="dropdown-divider" />
+                <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                  Close Selected Tab
+                </button>
+                <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                  Force Close Selected Tab
+                </button>
+                <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                  Close All but Selected Tab
+                </button>
+                <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                  Close All Tabs
+                </button>
+                <button class="btn hoverBgLightGray w-100 text-start text-nowrap">
+                  Force Close All Tabs
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="rightGroup d-flex gap-3">
-        <a href="#" class="layoutButton">
-          <i class="bi bi-layout-split"></i>
-        </a>
-        <a href="#" class="questionButton">
-          <i class="bi bi-question-circle"></i>
-        </a>
+      <div class="d-flex flex-fill">
+        <div class="requestArea d-flex flex-column flex-fill">
+          <div class="requestContainer flex-fill p-2 d-flex flex-column gap-3">
+            <div class="header d-flex justify-content-between">
+              <div class="d-flex align-items-center gap-2">
+                <div class="requestType">
+                  <img src="./assets/images/http.svg" alt="Request Type" />
+                </div>
+                <p class="requestTitle inter-6 mb-0 text-light">
+                  Untitled Request
+                </p>
+              </div>
+              <button class="btn hoverBgLightGray d-flex align-items-center gap-2 p-1">
+                <img src="./assets/images/save.svg" alt="Save Button" />
+                <span class="text-secondary">Save</span>
+              </button>
+            </div>
+            <div class="searchBar d-flex gap-2">
+              <div class="searchBox flex-fill d-flex rounded-2">
+                <div class="methodInput">
+                  <div class="input-group">
+                    <input type="text" class="form-control border-0 getMethodColor" value="GET" id="methodInput"
+                      readonly />
+                    <button class="btn dropdown-toggle border-0 shadow-none text-light" type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <div class="dropdown-menu dropdown-menu-end p-2 bg-dark">
+                      <div class="d-flex flex-column methodMenu">
+                        <button class="btn hoverBgLightGray getMethodColor p-1 rounder-1 text-start methodBtn">
+                          GET
+                        </button>
+                        <button class="btn hoverBgLightGray postMethodColor p-1 rounder-1 text-start methodBtn">
+                          POST
+                        </button>
+                        <button class="btn hoverBgLightGray putMethodColor p-1 rounder-1 text-start methodBtn">
+                          PUT
+                        </button>
+                        <button class="btn hoverBgLightGray patchMethodColor p-1 rounder-1 text-start methodBtn">
+                          PATCH
+                        </button>
+                        <button class="btn hoverBgLightGray deleteMethodColor p-1 rounder-1 text-start methodBtn">
+                          DELETE
+                        </button>
+                        <button class="btn hoverBgLightGray headMethodColor p-1 rounder-1 text-start methodBtn">
+                          HEAD
+                        </button>
+                        <button class="btn hoverBgLightGray optionsMethodColor p-1 rounder-1 text-start methodBtn">
+                          OPTIONS
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="urlInput flex-fill text-light">
+                  <input type="text" class="form-control border-0" id="urlInput"
+                    placeholder="Enter URL or paste text" />
+                </div>
+              </div>
+              <div class="action">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary" id="sendBtn">
+                    Send
+                  </button>
+                  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Send Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu p-2 bg-dark text-light">
+                    <button class="btn hoverBgLightGray text-nowrap p-2 text-light">
+                      Send and Download
+                    </button>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="parameterTabs d-flex gap-4">
+              <a href="#" class="parameterTab inter-4 text-nowrap active">Params</a>
+              <a href="#" class="parameterTab inter-4 text-nowrap">Authorization</a>
+              <a href="#" class="parameterTab inter-4 text-nowrap">Headers</a>
+              <a href="#" class="parameterTab inter-4 text-nowrap">Body</a>
+              <a href="#" class="parameterTab inter-4 text-nowrap">Pre-request Script</a>
+              <a href="#" class="parameterTab inter-4 text-nowrap">Tests</a>
+              <a href="#" class="parameterTab inter-4 text-nowrap">Settings</a>
+              <span class="flex-fill"></span>
+              <a href="#" class="cookiesTab">Cookies</a>
+            </div>
+            <div class="tabContentContainer">
+              <div class="paramsTabContent">
+                <h6 class="tabHeader">Query Params</h6>
+                <div class="tabContent">
+                  <table class="w-100" id="paramsTable">
+                    <tr>
+                      <th style="min-width: 48px"></th>
+                      <th class="w-50">Key</th>
+                      <th class="w-50">Value</th>
+                      <th class="text-nowrap">
+                        <button class="btn p-0">Bulk Edit</button>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><input type="text" class="paramKey form-control border-0 bg-transparent text-light"
+                          placeholder="key1" />
+                      </td>
+                      <td><input type="text" class="paramValue form-control border-0 bg-transparent text-light"
+                          placeholder="value1" /></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><input type="text" class="paramKey form-control border-0 bg-transparent text-light"
+                          placeholder="key2" />
+                      </td>
+                      <td><input type="text" class="paramValue form-control border-0 bg-transparent text-light"
+                          placeholder="value2" /></td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="splitter horizontalSplitter" data-direction="horizontal"></div>
+
+          <div class="responseContainer p-2 d-flex flex-column">
+            <div class="header d-flex justify-content-between text-secondary cursor-pointer">
+              <p>Response (Raw)</p>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <pre id="responseRaw" style="
+                white-space: pre-wrap;
+                overflow: auto;
+                max-height: 200px;
+                color: #ccc;
+                background: #222;
+                padding: 10px;
+                border-radius: 4px;
+              ">
+            </pre>
+
+            <div class="header d-flex justify-content-between text-secondary cursor-pointer mt-3">
+              <p>Response (Rendered)</p>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <iframe id="responseRendered" style="
+                width: 100%;
+                height: 300px;
+                border: 1px solid #444;
+                border-radius: 4px;
+              "></iframe>
+          </div>
+
+        </div>
       </div>
-    </footer>
 
-    <!-- External JS -->
-    <script src="./assets/js/header.js"></script>
-    <script src="./assets/js/index.js"></script>
+      <div class="rightSidebar d-flex flex-column gap-2 p-2">
+        <button class="btn hoverBgLightGray rightBarCodeButton">
+          <i class="bi bi-code-slash"></i>
+        </button>
+        <button class="btn hoverBgLightGray rightBarTemplatesButton">
+          <img src="./assets/images/templates.svg" alt="Templates" />
+        </button>
+      </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- Bootstrap  -->
-    <script src="./assets/js/bootstrap.bundle.js"></script>
-    <script
-      src="https://kit.fontawesome.com/853cb537d1.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- JQuery -->
-    <script src="./assets/js/jquery.min.js"></script>
+  <footer class="d-flex justify-content-between py-1 px-2">
+    <div class="leftGroup d-flex gap-3">
+      <a href="#" class="hideSidebarButton">
+        <i class="bi bi-layout-text-sidebar"></i>
+      </a>
+      <a href="#" class="consoleButton">
+        <i class="bi bi-terminal"></i>
+        <span>Console</span></a>
+      <a href="#" class="accountButton">
+        <i class="bi bi-cloud-slash"></i>
+        <span>Not connected to a Postman account</span>
+      </a>
+    </div>
+    <div class="rightGroup d-flex gap-3">
+      <a href="#" class="layoutButton">
+        <i class="bi bi-layout-split"></i>
+      </a>
+      <a href="#" class="questionButton">
+        <i class="bi bi-question-circle"></i>
+      </a>
+    </div>
+  </footer>
 
-    <!-- Tippy Tooltip CDN -->
-    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+  <!-- External JS -->
+  <script src="./assets/js/header.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/test.js"></script>
 
-    <script src="./assets/js/tooltips.js"></script>
-    <script src="./assets/js/splitter.js"></script>
-  </body>
+  <!-- Bootstrap  -->
+  <script src="./assets/js/bootstrap.bundle.js"></script>
+  <script src="https://kit.fontawesome.com/853cb537d1.js" crossorigin="anonymous"></script>
+
+  <!-- JQuery -->
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Tippy Tooltip CDN -->
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+  <script src="./assets/js/tooltips.js"></script>
+  <script src="./assets/js/splitter.js"></script>
+</body>
+
 </html>
