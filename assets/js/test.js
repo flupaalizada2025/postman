@@ -277,3 +277,36 @@ document.getElementById("sendBtn").addEventListener("click", () => {
       document.getElementById("yazir").textContent = "Error: " + error.message;
     });
 });
+
+// theme toggle funksiyası
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("themeToggleBtn");
+
+  // LocalStorage-dan mövcud mövzunu oxu
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+
+  // Düyməyə click olunca mövzunu dəyiş
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+      toggleBtn.innerHTML = '<i class="bi bi-sun"></i>'; // Günəş ikonuna dəyiş
+    } else {
+      localStorage.setItem("theme", "light");
+      toggleBtn.innerHTML = '<i class="bi bi-moon-stars"></i>'; // Ay ikonuna dəyiş
+    }
+  });
+
+  // Başlanğıcda düymənin ikonunu doğru göstər
+  if (document.body.classList.contains("dark")) {
+    toggleBtn.innerHTML = '<i class="bi bi-sun"></i>';
+  } else {
+    toggleBtn.innerHTML = '<i class="bi bi-moon-stars"></i>';
+  }
+});
