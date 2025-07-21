@@ -464,10 +464,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", "light");
       toggleBtn.innerHTML = '<i class="bi bi-sun"></i>'; // Günəş ikonuna dəyiş
     } else {
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("theme", "dark");
       toggleBtn.innerHTML = '<i class="bi bi-moon-stars"></i>'; // Ay ikonuna dəyiş
     }
   });

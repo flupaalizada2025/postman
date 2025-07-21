@@ -1,32 +1,81 @@
 body.dark {
-  background-color: #121212 !important;
-  color: #e0e0e0 !important;
+  background-color: #fff !important;
+  color: #212121 !important;
 }
 
-/* Bütün başlıca konteynerlər üçün fon və rəng */
 body.dark header,
 body.dark footer,
 body.dark .sidebar,
 body.dark .rightMenu,
 body.dark .requestContainer,
 body.dark .responseContainer {
-  background-color: #1e1e1e !important;
-  color: #ddd !important;
+  background-color: #f9f9f9 !important;
+  color: #212121 !important;
 }
 
-/* Input, button, linklərin rənglərini override et */
 body.dark input,
 body.dark select,
 body.dark textarea,
 body.dark button,
-body.dark a {
-  background-color: #2a2a2a !important;
-  color: #ccc !important;
+body.dark a,
+body.dark p {
+  background-color: transparent !important;
+  color: #212121 !important;
   border-color: #444 !important;
+}
+body.dark .splitter{
+background-color: #212121;
+}
+body.dark .content .contentLeftSide button.active {
+  background-color: transparent !important;
+  color: #212121 !important;
+}
+body.dark > main > aside.sidebar > div.header > div.buttons {
+  background-color: #ededed !important;
+  color: #212121;
+}
+
+body.dark .action div button {
+  background-color: #097bed !important;
+  color: white !important;
+  border: none !important;
+}
+
+body.dark .dropdown .dropdown-menu,
+body.dark .dropdown-menu,
+body.dark .getMethodColor,
+body.dark .dropdown-toggle,
+body.dark .searchContainer {
+  background-color: #fff !important;
+}
+body.dark .dropdown .dropdown-menu button,
+body.dark .methodMenu button,
+body.dark .dropend {
+  border: none !important;
+}
+
+body.dark .hoverBgLightGray,
+body.dark .title,
+body.dark .rightGroup .dropdown i {
+  color: #212121 !important;
+}
+
+body.dark pre,
+body.dark iframe {
+  background-color: transparent !important;
+  color: #212121 !important;
 }
 
 /* Hover effektləri */
 body.dark .btn:hover,
 body.dark .btn:focus {
-  background-color: #333 !important;
+  background-color: #ededed !important;
+}
+
+
+
+body.dark .folder-item, body.dark .request-item{
+  background-color: transparent !important;
+  color: #212121 !important;
+  border: none !important;
 }
