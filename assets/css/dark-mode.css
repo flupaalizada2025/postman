@@ -1,0 +1,32 @@
+body.dark {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Bütün başlıca konteynerlər üçün fon və rəng */
+body.dark header,
+body.dark footer,
+body.dark .sidebar,
+body.dark .rightMenu,
+body.dark .requestContainer,
+body.dark .responseContainer {
+  background-color: #1e1e1e !important;
+  color: #ddd !important;
+}
+
+/* Input, button, linklərin rənglərini override et */
+body.dark input,
+body.dark select,
+body.dark textarea,
+body.dark button,
+body.dark a {
+  background-color: #2a2a2a !important;
+  color: #ccc !important;
+  border-color: #444 !important;
+}
+
+/* Hover effektləri */
+body.dark .btn:hover,
+body.dark .btn:focus {
+  background-color: #333 !important;
+}

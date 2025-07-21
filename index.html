@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/splitter.css" />
     <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/dark-mode.css" />
+    <link rel="stylesheet" href="./assets/css/dark-mode.css" />
   </head>
 
   <body class="vh-100 d-flex flex-column">
@@ -185,8 +187,14 @@
             </div>
           </div>
 
+          <button
+            id="themeToggleBtn"
+            class="btn btn-outline-light"
+            title="Toggle Light/Dark Mode"
+          >
+            <i class="bi bi-moon-stars"></i>
+          </button>
           <a href="#" class="btn bgLightGray">Sign in</a>
-
           <a href="#" class="btn bgOrange text-white">Create Account</a>
         </div>
       </div>
@@ -259,7 +267,7 @@
             ></button>
           </div>
           <!-- RightSide -->
-          <div class="pe-3 ps-3">
+          <div class="pe-3 ps-3 w-100">
             <div class="d-flex gap-2 fs-3 align-items-center mt-3">
               <i class="fa-solid fa-plus"></i>
               <input
@@ -314,9 +322,9 @@
               </button>
             </div>
             <!-- Collection Section -->
-            <div id="collectionContent" class="py-4">
+            <div id="collectionContent" class="py-4 w-100">
               <details>
-                <summary 
+                <summary
                   class="w-100 d-flex justify-content-between align-items-center"
                 >
                   New Collection
@@ -407,219 +415,6 @@
                   to start working.
                 </p>
               </details>
-              <!-- <div>
-                <a
-                  class="btn bg-transparent d-flex collectionNewButton text-light"
-                  data-bs-toggle="collapse"
-                  href="#multiCollapseExample1"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="multiCollapseExample1"
-                  >New Collection
-
-
-
-                  <div class="d-flex align-items-center hoverElements">
-                    <a href="#" id="addRequest" class="px-2">
-                      <i class="fa-solid fa-plus" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="text-light">
-                      <i class="fa-regular fa-star"></i>
-                    </a>
-
-                    <div class="dropdown dropend">
-                      <button
-                        type="button"
-                        class="btn bg-transparent text-light dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        <i class="fa-solid fa-bars"></i>
-                      </button>
-                      <ul class="dropdown-menu gap-3">
-                        <li>
-                          <a class="dropdown-item" id="addRequest" href="#"
-                            >Add Request</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item" id="addFolder" href="#"
-                            >Add Folder</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="dropdown-item border-top border-bottom py-2"
-                            >Run</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Share</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Copy Link</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Move</a>
-                        </li>
-                        <li>
-                          <a href="#" class="border-top border-bottom py-2"
-                            >Fork</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Rename</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Dublicate</a>
-                        </li>
-                        <li>
-                          <a href="#" class="dropdown-item">Delete</a>
-                        </li>
-                        <li><a href="#" class="dropdown-item">More</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </a>
-                <div class="row">
-                  <div class="col">
-                    <div
-                      class="collapse multi-collapse"
-                      id="multiCollapseExample1"
-                    >
-                      <div class="card card-body bg-transparent">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Quisquam, libero maiores. Aut quia labore debitis
-                        officiis at minima aperiam tempora vitae, amet quae iure
-                        ipsam suscipit sapiente similique atque perspiciatis?
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-
-              <!-- <div class="accordion"> -->
-              <!-- <div class="accordion-item bg-transparent border-0">
-                  <h2
-                    class="accordion-header text-light d-flex justify-content-between"
-                    id="headingOne"
-                  >
-                    <button
-                      class="accordion-button bg-transparent text-light border-0 fs-6 d-flex p-0 justify-content-between"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      New Collection
-                      <div class="ps-5">
-                        <a href="#" id="addRequest" class="px-2">
-                          <i class="fa-solid fa-plus" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="text-light">
-                          <i class="fa-regular fa-star"></i>
-                        </a>
-
-                        <div class="dropdown dropend">
-                          <button
-                            type="button"
-                            class="btn bg-transparent text-light dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                          >
-                            <i class="fa-solid fa-bars"></i>
-                          </button>
-                          <ul class="dropdown-menu gap-3">
-                            <li>
-                              <a class="dropdown-item" id="addRequest" href="#"
-                                >Add Request</a
-                              >
-                            </li>
-                            <li>
-                              <a class="dropdown-item" id="addFolder" href="#"
-                                >Add Folder</a
-                              >
-                            </li>
-                            <li>
-                              <a
-                                href="#"
-                                class="dropdown-item border-top border-bottom py-2"
-                                >Run</a
-                              >
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Share</a>
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Copy Link</a>
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Move</a>
-                            </li>
-                            <li>
-                              <a href="#" class="border-top border-bottom py-2"
-                                >Fork</a
-                              >
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Rename</a>
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Dublicate</a>
-                            </li>
-                            <li>
-                              <a href="#" class="dropdown-item">Delete</a>
-                            </li>
-                            <li><a href="#" class="dropdown-item">More</a></li>
-                          </ul>
-                        </div>
-                        <div class="otherMenu d-none">
-                          <button
-                            class="dropbtn bg-transparent btn text-light dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                          >
-                            <i class="fa-solid fa-bars"></i>
-                          </button>
-                          <div
-                            class="dropdown-Content d-none bg-dark text-light d-flex gap-3 flex-column p-3"
-                          >
-                            <a href="#" class="border-top border-bottom py-2"
-                              >Run</a
-                            >
-                            <a href="#">Share</a>
-                            <a href="#">Copy Link</a>
-                            <a href="#">Move</a>
-                            <a href="#" class="border-top border-bottom py-2"
-                              >Fork</a
-                            >
-                            <a href="#">Rename</a>
-                            <a href="#">Rename</a>
-                            <a href="#">Dublicate</a>
-                            <a href="#">Delete</a>
-                            <a href="#">More</a>
-                          </div>
-                        </div>
-                      </div>
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse show rounded-0 ms-2 h-auto"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div
-                      class="accordion-body text-light h-auto py-2 px-3 pe-5"
-                    >
-                      <p class="desc w-100" id="collectDesc">
-                        This collection is empty.
-                        <a href="#" class="text-primary">Add a request</a>
-                        to start working.
-                      </p>
-                    </div>
-                  </div>
-                </div> -->
-              <!-- </div> -->
             </div>
           </div>
         </div>
@@ -771,6 +566,8 @@
                         type="text"
                         class="form-control border-0 getMethodColor"
                         value="GET"
+                        id="methodInput"
+                        readonly
                       />
                       <button
                         class="btn dropdown-toggle border-0 shadow-none text-light"
@@ -781,44 +578,41 @@
                       <div class="dropdown-menu dropdown-menu-end p-2 bg-dark">
                         <div class="d-flex flex-column methodMenu">
                           <button
-                            class="btn hoverBgLightGray getMethodColor p-1 rounder-1 text-start"
+                            class="btn hoverBgLightGray getMethodColor p-1 rounder-1 text-start methodBtn"
                           >
                             GET
                           </button>
                           <button
-                            class="btn hoverBgLightGray postMethodColor p-1 rounder-1 text-start"
+                            class="btn hoverBgLightGray postMethodColor p-1 rounder-1 text-start methodBtn"
                           >
                             POST
                           </button>
                           <button
-                            class="btn hoverBgLightGray putMethodColor p-1 rounder-1 text-start"
+                            class="btn hoverBgLightGray putMethodColor p-1 rounder-1 text-start methodBtn"
                           >
                             PUT
                           </button>
                           <button
-                            class="btn hoverBgLightGray patchMethodColor p-1 rounder-1 text-start"
+                            class="btn hoverBgLightGray patchMethodColor p-1 rounder-1 text-start methodBtn"
                           >
                             PATCH
                           </button>
                           <button
-                            class="btn hoverBgLightGray deleteMethodColor p-1 rounder-1 text-start"
+                            class="btn hoverBgLightGray deleteMethodColor p-1 rounder-1 text-start methodBtn"
                           >
                             DELETE
                           </button>
                           <button
-                            class="btn hoverBgLightGray headMethodColor p-1 rounder-1 text-start"
+                            class="btn hoverBgLightGray headMethodColor p-1 rounder-1 text-start methodBtn"
                           >
                             HEAD
                           </button>
                           <button
-                            class="btn hoverBgLightGray optionsMethodColor p-1 rounder-1 text-start"
+                            class="btn hoverBgLightGray optionsMethodColor p-1 rounder-1 text-start methodBtn"
                           >
                             OPTIONS
                           </button>
                         </div>
-                        <hr class="dropdown-divider" />
-
-                        <p class="text-secondary p-2 mb-0">Type a new method</p>
                       </div>
                     </div>
                   </div>
@@ -826,13 +620,16 @@
                     <input
                       type="text"
                       class="form-control border-0"
+                      id="urlInput"
                       placeholder="Enter URL or paste text"
                     />
                   </div>
                 </div>
                 <div class="action">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Send</button>
+                    <button type="button" class="btn btn-primary" id="sendBtn">
+                      Send
+                    </button>
                     <button
                       type="button"
                       class="btn btn-primary dropdown-toggle dropdown-toggle-split"
@@ -851,6 +648,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="parameterTabs d-flex gap-4">
                 <a href="#" class="parameterTab inter-4 text-nowrap active"
                   >Params</a
@@ -874,7 +672,7 @@
                 <div class="paramsTabContent">
                   <h6 class="tabHeader">Query Params</h6>
                   <div class="tabContent">
-                    <table class="w-100">
+                    <table class="w-100" id="paramsTable">
                       <tr>
                         <th style="min-width: 48px"></th>
                         <th class="w-50">Key</th>
@@ -885,37 +683,89 @@
                       </tr>
                       <tr>
                         <td></td>
-                        <td>Key</td>
-                        <td colspan="2">Value</td>
+                        <td>
+                          <input
+                            type="text"
+                            class="paramKey form-control border-0 bg-transparent text-light"
+                            placeholder="key1"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            class="paramValue form-control border-0 bg-transparent text-light"
+                            placeholder="value1"
+                          />
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <input
+                            type="text"
+                            class="paramKey form-control border-0 bg-transparent text-light"
+                            placeholder="key2"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            class="paramValue form-control border-0 bg-transparent text-light"
+                            placeholder="value2"
+                          />
+                        </td>
+                        <td></td>
                       </tr>
                     </table>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="splitter horizontalSplitter"
-              data-direction="horizontal"
-            ></div>
-            <div class="responseContainer p-2 d-flex flex-column">
+
               <div
-                class="header d-flex justify-content-between text-secondary cursor-pointer"
-              >
-                <p>Response</p>
-                <i class="bi bi-chevron-down"></i>
-              </div>
-              <div class="content flex-fill">
+                class="splitter horizontalSplitter"
+                data-direction="horizontal"
+              ></div>
+
+              <div class="responseContainer p-2 d-flex flex-column">
                 <div
-                  class="emptyContent d-flex flex-column align-items-center justify-content-middle gap-4"
+                  class="header d-flex justify-content-between text-secondary cursor-pointer"
                 >
-                  <img src="./assets/images/emptyresponse.svg" alt="Empty" />
-                  <p class="text-secondary">
-                    Enter the URL and click Send to get a response
-                  </p>
+                  <p>Response (Raw)</p>
+                  <i class="bi bi-chevron-down"></i>
                 </div>
+                <pre
+                  id="responseRaw"
+                  style="
+                    white-space: pre-wrap;
+                    overflow: auto;
+                    max-height: 200px;
+                    color: #ccc;
+                    background: #222;
+                    padding: 10px;
+                    border-radius: 4px;
+                  "
+                ></pre>
+
+                <div
+                  class="header d-flex justify-content-between text-secondary cursor-pointer mt-3"
+                >
+                  <p>Response (Rendered)</p>
+                  <i class="bi bi-chevron-down"></i>
+                </div>
+                <iframe
+                  id="responseRendered"
+                  style="
+                    width: 100%;
+                    height: 300px;
+                    border: 1px solid #444;
+                    border-radius: 4px;
+                  "
+                ></iframe>
               </div>
             </div>
           </div>
+
           <div class="rightSidebar d-flex flex-column gap-2 p-2">
             <button class="btn hoverBgLightGray rightBarCodeButton">
               <i class="bi bi-code-slash"></i>
@@ -955,6 +805,7 @@
     <!-- External JS -->
     <script src="./assets/js/header.js"></script>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/test.js"></script>
 
     <!-- Bootstrap  -->
     <script src="./assets/js/bootstrap.bundle.js"></script>
@@ -962,8 +813,15 @@
       src="https://kit.fontawesome.com/853cb537d1.js"
       crossorigin="anonymous"
     ></script>
+
     <!-- JQuery -->
     <script src="./assets/js/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <!-- Tippy Tooltip CDN -->
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
