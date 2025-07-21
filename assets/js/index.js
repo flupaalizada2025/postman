@@ -168,46 +168,6 @@ addFolder.addEventListener("click", () => {
   renderrequst();
 });
 
-// $(document).ready(function () {
-//   // Metod düymələrinə klik olduqda
-//   $(".methodBtn").click(function () {
-//     var selectedMethod = $(this).text().trim();
-
-//     // Inputun dəyərini dəyişirik
-//     $("#methodInput").val(selectedMethod);
-
-//     // Butonun rəngini dəyişmək üçün əvvəlki classları təmizləyirik
-//     $("#methodInput").removeClass(
-//       "getMethodColor postMethodColor putMethodColor patchMethodColor deleteMethodColor headMethodColor optionsMethodColor"
-//     );
-
-//     // Yeni metoda uyğun class əlavə edirik
-//     switch (selectedMethod) {
-//       case "GET":
-//         $("#methodInput").addClass("getMethodColor");
-//         break;
-//       case "POST":
-//         $("#methodInput").addClass("postMethodColor");
-//         break;
-//       case "PUT":
-//         $("#methodInput").addClass("putMethodColor");
-//         break;
-//       case "PATCH":
-//         $("#methodInput").addClass("patchMethodColor");
-//         break;
-//       case "DELETE":
-//         $("#methodInput").addClass("deleteMethodColor");
-//         break;
-//       case "HEAD":
-//         $("#methodInput").addClass("headMethodColor");
-//         break;
-//       case "OPTIONS":
-//         $("#methodInput").addClass("optionsMethodColor");
-//         break;
-//     }
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   const methodInput = document.querySelector("#methodInput");
   const methodButtons = document.querySelectorAll(".methodBtn");
@@ -257,35 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-// $(document).ready(function () {
-//   // Metod, URL, Parametrlər, Body input-larını götür (sənin HTML-ə uyğun)
-//   $("#sendBtn").click(function () {
-//     let method = $("#methodInput").val().toUpperCase(); // GET, POST, PUT, DELETE
-//     let url = $("#urlInput").val();
-//     let params = $("#paramsInput").val(); // key=value&key2=value2 formatında ola bilər
-//     let body = $("#bodyInput").val(); // JSON kimi
-
-//     // Əgər GET-dirsə, parametrləri url-ə əlavə et
-//     if (method === "GET" && params) {
-//       url += (url.includes("?") ? "&" : "?") + params;
-//     }
-
-//     $.ajax({
-//       url: url,
-//       method: method,
-//       data: method === "GET" || method === "DELETE" ? null : body,
-//       contentType: "application/json",
-//       success: function (response) {
-//         // Cavabı "yazir" adlı sahədə göstər
-//         $("#yazir").text(JSON.stringify(response, null, 2));
-//       },
-//       error: function (xhr) {
-//         $("#yazir").text("Error: " + xhr.status + " " + xhr.statusText);
-//       },
-//     });
-//   });
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const sendBtn = document.getElementById("sendBtn");

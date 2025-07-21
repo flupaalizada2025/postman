@@ -23,8 +23,8 @@ body.dark p {
   color: #212121 !important;
   border-color: #444 !important;
 }
-body.dark .splitter{
-background-color: #212121;
+body.dark .splitter {
+  background-color: #212121;
 }
 body.dark .content .contentLeftSide button.active {
   background-color: transparent !important;
@@ -72,10 +72,35 @@ body.dark .btn:focus {
   background-color: #ededed !important;
 }
 
-
-
-body.dark .folder-item, body.dark .request-item{
+body.dark .folder-item,
+body.dark .request-item {
   background-color: transparent !important;
   color: #212121 !important;
   border: none !important;
+}
+
+body.dark
+  > header
+  > div.mainHeader
+  > div.leftGroup
+  > div.dropdown
+  > .dropdown-menu
+  button {
+  background-color: #f2f2f2 !important;
+}
+
+body.dark .yourWorkSpace {
+  background-color: transparent !important;
+}
+body.dark
+  > header
+  > div.mainHeader
+  > div.leftGroup
+  > div.dropdown
+  > .dropdown-menu
+  > .workspaces
+  > .yourWorkSpace
+  > span
+  > i {
+  color: #212121 !important;
 }
