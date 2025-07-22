@@ -227,24 +227,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const yazir = document.getElementById("yazir");
   const paramsKeys = document.querySelector("#paramsKey");
 
-
-  paramsKeys.addEventListener("change", (e) => {
-    console.log(paramsKeys.value)
-    console.log(e)
-  })
-
-  
-
   sendBtn.addEventListener("click", () => {
     let method = methodInput.value.toUpperCase();
     let url = urlInput.value;
     let params = paramsInput.value.trim();
     let body = bodyInput.value.trim();
-
-    // GET metodunda parametrləri URL-ə əlavə et
-    if (method === "GET" && params) {
-      url += (url.includes("?") ? "&" : "?") + params;
-    }
 
     // Fetch API istifadə edirik
     fetch(url, {
@@ -269,7 +256,30 @@ document.addEventListener("DOMContentLoaded", () => {
         yazir.textContent = "Error: " + error.message;
       });
   });
+
+  paramsKeys.addEventListener("input", () => {
+    const paramValuee = document.querySelector("#paramValue");
+    let baseUrl = urlInput.value.split("?")[0];
+    let paramKeysValue = paramsKeys.value.trim();
+    let paramValue = paramValuee.value.trim();
+
+    
+    if (paramKeysValue !== "" && paramValue !== "") {
+      urlInput.value =
+      baseUrl + "?" + "paramKeys=" + paramKeysValue + "&" + paramValue;
+    } else if (paramKeysValue !== "") {
+      urlInput.value = baseUrl + "?" + paramKeysValue;
+    } else if (paramValue !== "") {
+      urlInput.value = baseUrl + "?" + "&" + paramValue;
+    } else {
+      urlInput.value = baseUrl;
+    }
+    
+    console.log(paramValue);
+    console.log(urlInput.value);
+  });
 });
+
 document.getElementById("sendBtn").addEventListener("click", () => {
   let method = document.getElementById("methodInput").value.toUpperCase();
   let url = document.getElementById("urlInput").value.trim();

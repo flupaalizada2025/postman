@@ -25,8 +25,7 @@ $(document).ready(function () {
 
   // Search Collection
   function searchCollection() {
-
-    console.log("Salam")
+    console.log("Salam");
     let input = $("#searchCollectionInput").val().toLowerCase();
     let noResult = $(".noCollectionResult");
     let emptyContent = $(".emptyContent");
@@ -155,6 +154,27 @@ $(document).ready(function () {
         url += (url.includes("?") ? "&" : "?") + params;
       }
     }
+
+    // ["DELETE,"PUT"].includes(method){
+    //   JSON.stringify(data);
+    // }
+
+    // $.ajax({
+    //   method: "GET"
+    //   url,
+    //   data,
+    //   success: function(res){
+    //     if(res.code === 200){
+    //       console.log(res.data);
+    //     }
+    //   },
+    //   error: function(res){
+
+    //   },
+    //   complete: function(){
+
+    //   }
+    // })
 
     fetch(url, {
       method,
