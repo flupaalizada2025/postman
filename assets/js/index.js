@@ -225,6 +225,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const paramsInput = document.getElementById("paramsInput");
   const bodyInput = document.getElementById("bodyInput");
   const yazir = document.getElementById("yazir");
+  const paramsKeys = document.querySelector("#paramsKey");
+
+
+  paramsKeys.addEventListener("change", (e) => {
+    console.log(paramsKeys.value)
+    console.log(e)
+  })
+
+  
 
   sendBtn.addEventListener("click", () => {
     let method = methodInput.value.toUpperCase();

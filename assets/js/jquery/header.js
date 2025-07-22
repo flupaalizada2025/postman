@@ -1,5 +1,3 @@
-console.clear()
-
 function search() {
   const input = $("#searchWorkspace").val().toLowerCase();
   const spans = $("#resultBtn");

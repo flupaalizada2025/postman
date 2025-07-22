@@ -47,12 +47,12 @@
 
   <body class="vh-100 d-flex flex-column">
     <header class="d-flex flex-column gap-2 p-2">
-      <div class="topHeader d-flex gap-2">
+      <!-- <div class="topHeader d-flex gap-2">
         <a href="#" class="text-decoration-none">File</a>
         <a href="#" class="text-decoration-none">Edit</a>
         <a href="#" class="text-decoration-none">View</a>
         <a href="#" class="text-decoration-none">Help</a>
-      </div>
+      </div> -->
       <div class="mainHeader d-flex justify-content-between">
         <div class="leftGroup d-flex gap-2">
           <div class="dropdown">
@@ -200,7 +200,7 @@
             <i class="bi bi-moon-stars"></i>
           </button>
           <a href="#" class="btn bgLightGray">Sign in</a>
-          <a href="#" class="btn bgOrange text-white">Create Account</a>
+          <!-- <a href="#" class="btn bgOrange text-white">Create Account</a> -->
         </div>
       </div>
     </header>
@@ -680,37 +680,60 @@
               </div>
               <div class="tabContentContainer">
                 <div class="paramsTabContent">
-                  <h6 class="tabHeader">Query Params</h6>
+                  <h6 class="tabHeader text-light">Query Params</h6>
                   <div class="tabContent">
                     <table class="w-100" id="paramsTable">
                       <tr>
                         <th style="min-width: 48px"></th>
-                        <th class="w-50">Key</th>
-                        <th class="w-50">Value</th>
+                        <th class="w-50 text-light">Key</th>
+                        <th class="w-50 text-light">Value</th>
                         <th class="text-nowrap">
-                          <button class="btn p-0">Bulk Edit</button>
+                          <button class="btn p-0 text-light">Bulk Edit</button>
                         </th>
                       </tr>
                       <tr>
-                        <td></td>
+                        <td>
+                          <div
+                            class="form-check d-flex justify-content-center align-items-center"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckDefault"
+                            />
+                          </div>
+                        </td>
                         <td>
                           <input
                             type="text"
                             class="paramKey form-control border-0 bg-transparent text-light"
-                            placeholder="key1"
+                            placeholder="key"
+                            id="paramsKey"
                           />
                         </td>
                         <td>
                           <input
                             type="text"
                             class="paramValue form-control border-0 bg-transparent text-light"
-                            placeholder="value1"
+                            placeholder="value"
                           />
                         </td>
                         <td></td>
                       </tr>
                       <tr>
-                        <td></td>
+                        <td>
+                          <div
+                            class="form-check d-flex justify-content-center align-items-center"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="flexCheckDefault"
+                            />
+                          </div>
+                        </td>
                         <td>
                           <input
                             type="text"
@@ -820,15 +843,15 @@
     ></script>
 
     <!-- JQuery -->
-    <!-- <script src="./assets/js/jquery.min.js"></script> -->
+    <script src="./assets/js/jquery.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
     <!-- External JS -->
-    <!-- <script src="./assets/js/header.js"></script> -->
     <script src="./assets/js/jquery/header.js"></script>
     <script src="./assets/js/jquery/index.js"></script>
 
@@ -837,6 +860,6 @@
     <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 
     <script src="./assets/js/tooltips.js"></script>
-    <script src="./assets/js/splitter.js"></script>
+    <script src="./assets/js/jquery/splitter.js"></script>
   </body>
 </html>

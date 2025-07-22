@@ -57,7 +57,10 @@ p.desc {
 .dropdown-menu li a:hover {
   background-color: #8f8f8f !important;
 }
-
+.paramKey::placeholder,
+.paramValue::placeholder {
+  color: white;
+}
 /* .collectionNewButton{
   position: relative;
 }
