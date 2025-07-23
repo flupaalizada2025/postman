@@ -124,9 +124,8 @@ renderrequst();
 // ADD REQUSET
 let addRequest = document.getElementById("addRequest");
 addRequest.addEventListener("click", () => {
-  const requests = collectionData[1]; // requests array
+  const requests = collectionData[1];
 
-  // MaxID ile requset IDleri andle etmek
   const maxId = requests.reduce((max, request) => Math.max(max, request.id), 0);
   const newId = maxId + 1;
 
@@ -137,19 +136,15 @@ addRequest.addEventListener("click", () => {
   };
 
   requests.push(newRequest);
-
-  // Guncellemek localStorage
   localStorage.setItem("collectionData", JSON.stringify(collectionData));
-
   renderrequst();
 });
 
 let addFolder = document.querySelector("#addFolder");
 
 addFolder.addEventListener("click", () => {
-  const folders = collectionData[0]; // folders array
+  const folders = collectionData[0];
 
-  // Find the maximum ID to generate a unique new ID
   const maxId = folders.reduce((max, folder) => Math.max(max, folder.id), 0);
   const newId = maxId + 1;
 
@@ -159,12 +154,7 @@ addFolder.addEventListener("click", () => {
   };
 
   folders.push(newFolder);
-  console.log(`New folder added:`, newFolder);
-  console.log(`Updated collectionData:`, collectionData);
-
-  // Update localStorage
   localStorage.setItem("collectionData", JSON.stringify(collectionData));
-
   renderrequst();
 });
 
@@ -263,10 +253,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let paramKeysValue = paramsKeys.value.trim();
     let paramValue = paramValuee.value.trim();
 
-    
     if (paramKeysValue !== "" && paramValue !== "") {
       urlInput.value =
-      baseUrl + "?" + "paramKeys=" + paramKeysValue + "&" + paramValue;
+        baseUrl + "?" + "paramKeys=" + paramKeysValue + "&" + paramValue;
     } else if (paramKeysValue !== "") {
       urlInput.value = baseUrl + "?" + paramKeysValue;
     } else if (paramValue !== "") {
@@ -274,9 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       urlInput.value = baseUrl;
     }
-    
-    console.log(paramValue);
-    console.log(urlInput.value);
   });
 });
 

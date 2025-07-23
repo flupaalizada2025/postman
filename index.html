@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Change PLS -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
     <title>Postman Clone</title>
 
     <!-- Favicon -->
@@ -10,6 +11,12 @@
 
     <!-- Bootstrap Link -->
     <link href="./assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
 
     <!-- Bootstrap Icons CDN -->
     <link
@@ -377,7 +384,14 @@
                           >
                         </li>
                         <li>
-                          <a href="#" class="dropdown-item text-light">Share</a>
+                          <button
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#shareModal"
+                            class="bg-transparent border-0 w-100 text-start dropdown-item text-light"
+                          >
+                            Share
+                          </button>
                         </li>
                         <li>
                           <a href="#" class="dropdown-item text-light"
@@ -810,6 +824,81 @@
           </div>
         </div>
       </section>
+      <!-- Share Collection Modal -->
+      <div
+        class="modal fade"
+        id="shareModal"
+        tabindex="-1"
+        aria-labelledby="shareModalLabel"
+        aria-hidden="true"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-0">
+              <h1 class="modal-title fs-5" id="shareModalLabel">
+                Share collection
+              </h1>
+              <button
+                type="button"
+                class="btn-close text-light"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div
+                class="d-flex gap-2 align-items-center justify-content-start"
+              >
+                <p class="gray m-0">Sharing with:</p>
+                <div class="dropdown d-flex align-items-center">
+                  <a
+                    class="btn bg-transparent dropdown-toggle text-light"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    No Environment
+                  </a>
+
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item text-light" href="#">
+                        No Environment
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#"
+                        >New Environment</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="d-flex gap-3 justify-content-center py-3">
+                <!-- Edit -->
+                <input
+                  type="text"
+                  class="border rounded p-2 text-light w-75 focus-ring-primary"
+                  placeholder="Enter name, email and group"
+                  style="
+                    --bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
+                  "
+                />
+                <button
+                  class="btn text-light"
+                  id="inviteBtn"
+                  aria-autocomplete="none"
+                >
+                  Invite
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="d-flex justify-content-between py-1 px-2">
@@ -838,6 +927,13 @@
 
     <!-- Bootstrap  -->
     <script src="./assets/js/bootstrap.bundle.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Fontawesome CDN -->
     <script
       src="https://kit.fontawesome.com/853cb537d1.js"
       crossorigin="anonymous"

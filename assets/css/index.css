@@ -70,3 +70,11 @@ p.desc {
   left: 0;
 } */
 /* Custom ScrollBar */
+
+p.gray {
+  color: rgb(166, 166, 166) !important;
+}
+
+#inviteBtn {
+  background-color: rgb(255, 108, 55);
+}
