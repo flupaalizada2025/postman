@@ -265,7 +265,8 @@ document.addEventListener("DOMContentLoaded", () => {
   sendBtn.addEventListener("click", () => {
     let method = methodInput.value.toUpperCase();
     let url = urlInput.value;
-    let params = paramsInput.value.trim();
+    // Edit
+    // let params = paramsInput.value.trim();
     let body = bodyInput.value.trim();
 
     // Fetch API istifadə edirik

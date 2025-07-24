@@ -188,7 +188,9 @@ $(document).ready(function () {
   $("#sendBtn").on("click", function () {
     let method = $("#methodInput").val().toUpperCase();
     let url = $("#urlInput").val().trim();
-    let body = $("#bodyInput").val().trim();
+    let body = $("#bodyInput").val();
+
+    console.log(body);
 
     if (["GET", "DELETE"].includes(method)) {
       const params = getParams();
@@ -196,13 +198,12 @@ $(document).ready(function () {
       body = null;
     }
 
-    fetch(url, {
+    $.ajax({
+      url: url,
       method: method,
-      headers: { "Content-Type": "application/json" },
-      body: body,
-    })
-      .then((res) => res.text())
-      .then((data) => {
+      contentType: "application/json",
+      data: body,
+      success: function (data) {
         $("#yazir").text(data);
         $("#responseRaw").text(data);
         if (data.startsWith("<")) {
@@ -213,14 +214,15 @@ $(document).ready(function () {
             `<pre>${escapeHtml(data)}</pre>`
           );
         }
-      })
-      .catch((err) => {
-        $("#yazir").text("Error: " + err.message);
+      },
+      error: function (xhr, status, err) {
+        $("#yazir").text("Error: " + err);
         $("#responseRendered").attr(
           "srcdoc",
-          `<pre style="color:red;">Error: ${escapeHtml(err.message)}</pre>`
+          `<pre style="color:red;">Error: ${escapeHtml(err)}</pre>`
         );
-      });
+      },
+    });
   });
 
   // Tema dəyişmə
