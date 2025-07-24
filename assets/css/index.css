@@ -69,7 +69,6 @@ p.desc {
   top: 0;
   left: 0;
 } */
-/* Custom ScrollBar */
 
 p.gray {
   color: rgb(166, 166, 166) !important;
@@ -77,4 +76,39 @@ p.gray {
 
 #inviteBtn {
   background-color: rgb(255, 108, 55);
+}
+.shareCollectionInput {
+  position: relative;
+}
+/* .shareCollectionInput input {
+  width: 80% !important;
+} */
+.shareCollectionInput .copyBtn {
+  position: absolute;
+  top: -35px;
+  left: 93%;
+}
+#copyBtn {
+  position: relative;
+}
+#copyBtn::after {
+  content: attr(data-tooltip);
+  position: absolute !important;
+  top: -30px !important;
+  left: 10px;
+  transform: translateX(-50%);
+  background-color: #212121;
+  color: white;
+  padding: 4px 8px;
+  opacity: 0;
+  font-size: 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#copyBtn.show-tooltip::after {
+  opacity: 1;
+}
+.btn-close {
+  filter: invert(1);
 }

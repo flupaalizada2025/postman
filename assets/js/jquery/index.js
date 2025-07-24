@@ -1,135 +1,147 @@
 $(document).ready(function () {
-  // Workspace setup
-  let workspaceName = $("#workspaceName");
+  // Əsas DOM elementləri
+  let $workspaceName = $("#workspaceName");
   let data = localStorage.getItem("workSpacesData");
   let datas = JSON.parse(data);
-  workspaceName.text(`${datas.inputName}'s Workspace`);
+  $workspaceName.text(`${datas.inputName}'s Workspace `);
 
-  // Set initial collection data
+  // İlkin collection məlumatları
   let collectionData = [
-    (folders = [{ id: 1, name: "New Folder" }]),
-    (requests = [
+    [{ id: 1, name: "New Folder" }],
+    [
       { id: 1, name: "New Request", type: "GET" },
       { id: 2, name: "New Request 2", type: "POST" },
-    ]),
+    ],
   ];
-
   localStorage.setItem("collectionData", JSON.stringify(collectionData));
 
-  // Create collection button
+  // Kolleksiya yarat düyməsi
   $("#createCollectionButton").on("click", function () {
     $("#emptyContent").addClass("d-none");
     $("#collectionContent").removeClass("d-none");
-    collectionContentFunction();
+    renderCollection();
   });
 
-  // Search Collection
-  function searchCollection() {
-    console.log("Salam");
-    let input = $("#searchCollectionInput").val().toLowerCase();
-    let noResult = $(".noCollectionResult");
-    let emptyContent = $(".emptyContent");
-    let notFoundText = $("#notFoundText");
-
-    if (input === "") {
-      noResult.addClass("d-none");
-      emptyContent.removeClass("d-none");
+  // Kolleksiya axtarışı
+  $("#searchCollectionInput").on("input", function () {
+    let value = $(this).val().toLowerCase();
+    if (value === "") {
+      $(".noCollectionResult").addClass("d-none");
+      $(".emptyContent").removeClass("d-none");
     } else {
-      noResult.removeClass("d-none");
-      notFoundText.text(`No results found for "${input}"`);
-      emptyContent.addClass("d-none");
+      $(".noCollectionResult").removeClass("d-none");
+      $("#notFoundText").text(`No results found for "${value}"`);
+      $(".emptyContent").addClass("d-none");
     }
-  }
-  // searchCollection();
-  // Render folders and requests
-  function renderrequst() {
-    const foldersArray = collectionData.find(
-      (item) => Array.isArray(item) && item[0]?.name && !item[0]?.type
-    );
-    const requestsArray = collectionData.find(
-      (item) => Array.isArray(item) && item[0]?.type
-    );
+  });
 
-    const collectDescElement = $("#collectDesc");
-    collectDescElement.empty();
+  // Kolleksiyanı göstər
+  function renderCollection() {
+    let data = JSON.parse(localStorage.getItem("collectionData"));
+    let folders = data[0];
+    let requests = data[1];
+    let $desc = $("#collectDesc");
+    $desc.empty();
 
-    if (foldersArray?.length > 0) {
-      foldersArray.forEach((folder) => {
-        collectDescElement.append(
-          `<div class="folder-item"><i class="bi bi-folder-fill me-2"></i>${folder.name}</div>`
-        );
-      });
-    }
-
-    if (requestsArray?.length > 0) {
-      requestsArray.forEach((request) => {
-        collectDescElement.append(
-          `<div class="request-item"><strong>${request.type}</strong>: ${request.name}</div>`
-        );
-      });
-    }
-
-    if (
-      (!foldersArray || foldersArray.length === 0) &&
-      (!requestsArray || requestsArray.length === 0)
-    ) {
-      collectDescElement.html(`
-          This collection is empty.
-          <a href="#" class="text-primary">Add a request</a>
-          or
-          <a href="#" class="text-primary">Add a folder</a>
-          to start working.
+    if (folders.length) {
+      $desc.append("<h5>Folders</h5>");
+      folders.forEach((folder) => {
+        $desc.append(`
+          <div class="folder-item d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-folder-fill me-2"></i>${folder.name}</span>
+            <div class="dropdown">
+              <button class="btn btn-sm border-0 text-light dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item text-light" href="#">Add Request</a></li>
+                <li><a class="dropdown-item text-light" href="#">Add Folder</a></li>
+                <li><a class="dropdown-item text-light border-top border-bottom py-2" href="#">Run</a></li>
+                <li>
+                  <button class="dropdown-item text-light share-folder" data-id="${folder.id}" data-name="${folder.name}" data-bs-toggle="modal" data-bs-target="#shareFolderModal">Share</button>
+                </li>
+                <li><a class="dropdown-item text-light border-bottom" href="#">Copy Link</a></li>
+                <li><a class="dropdown-item text-light" href="#">Rename</a></li>
+                <li><a class="dropdown-item text-light" href="#">Duplicate</a></li>
+                <li><a class="dropdown-item text-light" href="#">Delete</a></li>
+              </ul>
+            </div>
+          </div>
         `);
+      });
+    }
+
+    if (requests.length) {
+      $desc.append("<h5 class='mt-3'>Requests</h5>");
+      requests.forEach((r) => {
+        $desc.append(
+          `<div class="request-item"><strong>${r.type}</strong>: ${r.name}</div>`
+        );
+      });
+    }
+
+    if (!folders.length && !requests.length) {
+      $desc.html(
+        `This collection is empty. <a href="#" class="text-primary">Add a request</a> or <a href="#" class="text-primary">Add a folder</a> to start working.`
+      );
     }
   }
 
-  renderrequst();
+  renderCollection();
 
-  // Add request
+  // Share folder path
+  $(document).on("click", ".share-folder", function () {
+    const name = $(this).data("name");
+    const id = $(this).data("id");
+    $("#folderPathInput").val(
+      `${window.location.host}/New Collection/${name}/${id}`
+    );
+  });
+
+  $("#copyBtn").on("click", function () {
+    const val = $("#folderPathInput").val();
+    const $btn = $(this);
+
+    navigator.clipboard.writeText(val);
+    $btn.addClass("show-tooltip");
+    setTimeout(() => {
+      $btn.removeClass("show-tooltip");
+    }, 3000);
+  });
+
+  // Add Request
   $("#addRequest").on("click", function () {
-    const requests = collectionData[1];
-    const maxId = Math.max(...requests.map((r) => r.id));
-    const newId = maxId + 1;
-
-    const newRequest = {
-      id: newId,
-      name: `New Request ${newId}`,
+    let data = JSON.parse(localStorage.getItem("collectionData"));
+    let requests = data[1];
+    let maxId = Math.max(...requests.map((r) => r.id));
+    requests.push({
+      id: maxId + 1,
+      name: `New Request ${maxId + 1}`,
       type: "GET",
-    };
-
-    requests.push(newRequest);
-    localStorage.setItem("collectionData", JSON.stringify(collectionData));
-    renderrequst();
+    });
+    localStorage.setItem("collectionData", JSON.stringify(data));
+    renderCollection();
   });
 
-  // Add folder
+  // Add Folder
   $("#addFolder").on("click", function () {
-    const folders = collectionData[0];
-    const maxId = Math.max(...folders.map((f) => f.id));
-    const newId = maxId + 1;
-
-    const newFolder = {
-      id: newId,
-      name: `New Folder ${newId}`,
-    };
-
-    folders.push(newFolder);
-    localStorage.setItem("collectionData", JSON.stringify(collectionData));
-    renderrequst();
+    let data = JSON.parse(localStorage.getItem("collectionData"));
+    let folders = data[0];
+    let maxId = Math.max(...folders.map((f) => f.id));
+    folders.push({ id: maxId + 1, name: `New Folder ${maxId + 1}` });
+    localStorage.setItem("collectionData", JSON.stringify(data));
+    renderCollection();
   });
 
-  // Method button toggle
+  // Metod seçimi
   $(".methodBtn").on("click", function () {
-    const selectedMethod = $(this).text().trim();
-    const methodInput = $("#methodInput");
+    let selected = $(this).text().trim();
+    let $input = $("#methodInput")
+      .val(selected)
+      .removeClass()
+      .addClass("form-control");
 
-    methodInput
-      .val(selectedMethod)
-      .removeClass(
-        "getMethodColor postMethodColor putMethodColor patchMethodColor deleteMethodColor headMethodColor optionsMethodColor"
-      );
-
-    const colorClass = {
+    const classes = {
       GET: "getMethodColor",
       POST: "postMethodColor",
       PUT: "putMethodColor",
@@ -137,94 +149,32 @@ $(document).ready(function () {
       DELETE: "deleteMethodColor",
       HEAD: "headMethodColor",
       OPTIONS: "optionsMethodColor",
-    }[selectedMethod];
+    };
 
-    if (colorClass) methodInput.addClass(colorClass);
-  });
-
-  // Send request
-  $("#sendBtn").on("click", function () {
-    let method = $("#methodInput").val().toUpperCase();
-    let url = $("#urlInput").val().trim();
-    let body = $("#bodyInput").val() || "";
-
-    if (["GET", "DELETE"].includes(method)) {
-      const params = getParams();
-      if (params) {
-        url += (url.includes("?") ? "&" : "?") + params;
-      }
+    if (classes[selected]) {
+      $input.addClass(classes[selected]);
     }
-
-    // ["DELETE,"PUT"].includes(method){
-    //   JSON.stringify(data);
-    // }
-
-    // $.ajax({
-    //   method: "GET"
-    //   url,
-    //   data,
-    //   success: function(res){
-    //     if(res.code === 200){
-    //       console.log(res.data);
-    //     }
-    //   },
-    //   error: function(res){
-
-    //   },
-    //   complete: function(){
-
-    //   }
-    // })
-
-    fetch(url, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: ["GET", "DELETE"].includes(method) ? null : body,
-    })
-      .then(async (response) => {
-        const contentType = response.headers.get("content-type") || "";
-        if (contentType.includes("application/json")) {
-          const jsonData = await response.json();
-          return { type: "json", data: JSON.stringify(jsonData, null, 2) };
-        } else if (contentType.includes("text/html")) {
-          const textData = await response.text();
-          return { type: "html", data: textData };
-        } else {
-          const textData = await response.text();
-          return { type: "text", data: textData };
-        }
-      })
-      .then(({ type, data }) => {
-        $("#responseRaw").text(data);
-
-        if (type === "html") {
-          let iframeDoc =
-            $("#responseRendered")[0].contentDocument ||
-            $("#responseRendered")[0].contentWindow.document;
-          iframeDoc.open();
-          iframeDoc.write(data);
-          iframeDoc.close();
-        } else {
-          $("#responseRendered").attr(
-            "srcdoc",
-            `<pre style="white-space: pre-wrap; color:#ccc; background:#222; padding:10px;">${escapeHtml(
-              data
-            )}</pre>`
-          );
-        }
-      })
-      .catch((err) => {
-        $("#responseRaw").text(`Error: ${err.message}`);
-        $("#responseRendered").attr(
-          "srcdoc",
-          `<pre style="color:red;">Error: ${escapeHtml(err.message)}</pre>`
-        );
-      });
   });
 
-  // Escape HTML
+  // Parametr formalaşdır
+  function getParams() {
+    let keys = $(".paramKey")
+      .map((_, el) => $(el).val().trim())
+      .get();
+    let values = $(".paramValue")
+      .map((_, el) => $(el).val().trim())
+      .get();
+    return keys
+      .map((key, i) =>
+        key
+          ? `${encodeURIComponent(key)}=${encodeURIComponent(values[i])}`
+          : null
+      )
+      .filter(Boolean)
+      .join("&");
+  }
+
+  // HTML təhlükəsiz göstərmə
   function escapeHtml(text) {
     return text
       .replace(/&/g, "&amp;")
@@ -234,77 +184,61 @@ $(document).ready(function () {
       .replace(/'/g, "&#039;");
   }
 
-  // Get URL params
-  function getParams() {
-    let keys = $(".paramKey")
-      .map(function () {
-        return $(this).val().trim();
-      })
-      .get();
-    let values = $(".paramValue")
-      .map(function () {
-        return $(this).val().trim();
-      })
-      .get();
+  // Sorğu göndər
+  $("#sendBtn").on("click", function () {
+    let method = $("#methodInput").val().toUpperCase();
+    let url = $("#urlInput").val().trim();
+    let body = $("#bodyInput").val().trim();
 
-    let paramsArr = [];
-
-    for (let i = 0; i < keys.length; i++) {
-      if (keys[i]) {
-        paramsArr.push(
-          `${encodeURIComponent(keys[i])}=${encodeURIComponent(values[i])}`
-        );
-      }
+    if (["GET", "DELETE"].includes(method)) {
+      const params = getParams();
+      if (params) url += (url.includes("?") ? "&" : "?") + params;
+      body = null;
     }
 
-    return paramsArr.join("&");
-  }
+    fetch(url, {
+      method: method,
+      headers: { "Content-Type": "application/json" },
+      body: body,
+    })
+      .then((res) => res.text())
+      .then((data) => {
+        $("#yazir").text(data);
+        $("#responseRaw").text(data);
+        if (data.startsWith("<")) {
+          $("#responseRendered").attr("srcdoc", data);
+        } else {
+          $("#responseRendered").attr(
+            "srcdoc",
+            `<pre>${escapeHtml(data)}</pre>`
+          );
+        }
+      })
+      .catch((err) => {
+        $("#yazir").text("Error: " + err.message);
+        $("#responseRendered").attr(
+          "srcdoc",
+          `<pre style="color:red;">Error: ${escapeHtml(err.message)}</pre>`
+        );
+      });
+  });
 
-  // Theme toggle
-  const toggleBtn = $("#themeToggleBtn");
-
-  localStorage.setItem("theme", "light");
+  // Tema dəyişmə
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     $("body").addClass("dark");
+    $("#themeToggleBtn").html('<i class="bi bi-sun"></i>');
   } else {
     $("body").removeClass("dark");
+    $("#themeToggleBtn").html('<i class="bi bi-moon-stars"></i>');
   }
 
-  toggleBtn.on("click", function () {
+  $("#themeToggleBtn").on("click", function () {
     $("body").toggleClass("dark");
-
-    if ($("body").hasClass("dark")) {
-      localStorage.setItem("theme", "light");
-      toggleBtn.html('<i class="bi bi-sun"></i>');
-    } else {
-      localStorage.setItem("theme", "dark");
-      toggleBtn.html('<i class="bi bi-moon-stars"></i>');
-    }
-  });
-
-  if ($("body").hasClass("light")) {
-    toggleBtn.html('<i class="bi bi-moon-stars"></i>');
-  } else {
-    toggleBtn.html('<i class="bi bi-sun"></i>');
-  }
-
-  // Placeholder if needed
-  function collectionContentFunction() {
-    // Define if needed
-  }
-});
-
-jQuery(function ($) {
-  var panelList = $("#draggablePanelList");
-
-  panelList.sortable({
-    handle: ".panel-heading",
-    update: function () {
-      $(".panel", panelList).each(function (index, elem) {
-        var $listItem = $(elem),
-          newIndex = $listItem.index();
-      });
-    },
+    const isDark = $("body").hasClass("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    $(this).html(
+      isDark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>'
+    );
   });
 });

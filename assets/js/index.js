@@ -65,6 +65,7 @@ function collectionContentFunction() {}
 
 const collectDescElement = document.getElementById("collectDesc");
 let collectDesc = document.querySelector("#collectDesc");
+
 function renderrequst() {
   const foldersArray = collectionData.find(
     (item) => Array.isArray(item) && item[0] && item[0].name && !item[0].type
@@ -74,19 +75,58 @@ function renderrequst() {
     (item) => Array.isArray(item) && item[0] && item[0].type
   );
 
-  collectDescElement.innerHTML = ""; // Təmizləyirik
+  collectDescElement.innerHTML = "";
 
   // Əvvəl folderləri göstər
   if (foldersArray && foldersArray.length > 0) {
     const folderHeader = document.createElement("h5");
-    // folderHeader.textContent = "Folders";
     collectDescElement.appendChild(folderHeader);
 
     foldersArray.forEach((folder) => {
       const folderItem = document.createElement("div");
-      folderItem.className = "folder-item";
-      folderItem.innerHTML = `<i class="bi bi-folder-fill me-2"></i>${folder.name}`;
+      folderItem.className =
+        "folder-item d-flex justify-content-between align-items-center";
+      folderItem.innerHTML = `
+        <span><i class="bi bi-folder-fill me-2"></i>${folder.name}</span>
+        <div class="dropdown">
+          <button class="btn btn-sm border-0 text-light dropdown-toggle" type="button" id="dropdownMenuButton${folder.id}" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+          <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton${folder.id}">
+            <li><a class="dropdown-item text-light" href="#">Add Request</a></li>
+            <li><a class="dropdown-item text-light" href="#">Add Folder</a></li>
+            <li><a class="dropdown-item text-light border-top border-bottom py-2" href="#">Run</a></li>
+            <li>
+              <button
+               type="button"
+               data-bs-target="#shareFolderModal"
+               class="bg-transparent border-0 w-100 text-start dropdown-item text-light"
+               id="folderPath"
+               data-bs-toggle="modal"
+              >
+                Share
+              </button>
+            </li>
+            <li><a class="dropdown-item text-light border-bottom" href="#">Copy Link</a></li>
+            <li><a class="dropdown-item text-light " href="#">Rename</a></li>
+            <li><a class="dropdown-item text-light " href="#">Ducliacte</a></li>
+            <li><a class="dropdown-item text-light " href="#">Delete</a></li>
+          </ul>
+        </div>
+      `;
       collectDescElement.appendChild(folderItem);
+
+      const folderPath = document.querySelector("#folderPath");
+      const folderPathInput = document.querySelector("#folderPathInput");
+      const copyBtn = document.querySelector("#copyBtn");
+      folderPath.addEventListener("click", () => {
+        folderPathInput.value = `${window.location.host}/New Collection/${folder.name}/${folder.id}`;
+      });
+
+      copyBtn.addEventListener("click", () => {
+        const folderValue = folderPathInput.value;
+        navigator.clipboard.writeText(folderValue);
+      });
     });
   }
 
@@ -94,7 +134,6 @@ function renderrequst() {
   if (requestsArray && requestsArray.length > 0) {
     const requestHeader = document.createElement("h5");
     requestHeader.classList.add("mt-3");
-    // requestHeader.textContent = "Requests";
     collectDescElement.appendChild(requestHeader);
 
     requestsArray.forEach((request) => {
@@ -118,9 +157,15 @@ function renderrequst() {
         to start working.
     `;
   }
+
+  const dropdownElements = document.querySelectorAll(".dropdown-toggle");
+  dropdownElements.forEach((dropdown) => {
+    new bootstrap.Dropdown(dropdown);
+  });
 }
 
 renderrequst();
+
 // ADD REQUSET
 let addRequest = document.getElementById("addRequest");
 addRequest.addEventListener("click", () => {

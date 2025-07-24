@@ -11,12 +11,6 @@
 
     <!-- Bootstrap Link -->
     <link href="./assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
 
     <!-- Bootstrap Icons CDN -->
     <link
@@ -878,15 +872,38 @@
                 </div>
               </div>
               <div class="d-flex gap-3 justify-content-center py-3">
-                <!-- Edit -->
-                <input
-                  type="text"
-                  class="border rounded p-2 text-light w-75 focus-ring-primary"
-                  placeholder="Enter name, email and group"
-                  style="
-                    --bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
-                  "
-                />
+                <div class="shareCollectionInput w-100">
+                  <input
+                    type="text"
+                    class="border rounded p-2 text-light w-100 focus-ring-primary"
+                    placeholder="Enter name, email and group"
+                    style="
+                      --bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
+                    "
+                  />
+                  <div class="dropdown d-flex align-items-center">
+                    <a
+                      class="btn bg-transparent dropdown-toggle text-light"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Editor
+                    </a>
+
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item text-light" href="#">
+                          Editor
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-light" href="#">Viewer</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
                 <button
                   class="btn text-light"
                   id="inviteBtn"
@@ -894,6 +911,86 @@
                 >
                   Invite
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Share Folder Modal -->
+      <div
+        class="modal fade"
+        id="shareFolderModal"
+        tabindex="-1"
+        aria-labelledby="shareFolderModalLabel"
+        aria-hidden="true"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-0">
+              <h1 class="modal-title fs-5" id="shareFolderModalLabel">
+                Share Folder
+              </h1>
+              <button
+                type="button"
+                class="btn-close text-light"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div
+                class="d-flex gap-2 align-items-center justify-content-start"
+              >
+                <p class="gray m-0">Sharing with:</p>
+                <div class="dropdown d-flex align-items-center">
+                  <a
+                    class="btn bg-transparent dropdown-toggle text-light"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    No Environment
+                  </a>
+
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item text-light" href="#">
+                        No Environment
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-light" href="#"
+                        >New Environment</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="d-flex gap-3 justify-content-center py-3">
+                <div class="shareCollectionInput w-100">
+                  <input
+                    type="text"
+                    class="border rounded p-2 text-light w-100 focus-ring-primary"
+                    id="folderPathInput"
+                    placeholder="Your Folder path"
+                    style="
+                      --bs-focus-ring-color: rgba(var(--bs-success-rgb), 0.25);
+                    "
+                    readonly
+                  />
+
+                  <button
+                    type="button"
+                    class="copyBtn bg-transparent border-0 text-light"
+                    id="copyBtn"
+                    data-tooltip="Copied!"
+                  >
+                    <i class="fa-solid fa-copy"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -927,11 +1024,6 @@
 
     <!-- Bootstrap  -->
     <script src="./assets/js/bootstrap.bundle.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
 
     <!-- Fontawesome CDN -->
     <script
@@ -941,17 +1033,11 @@
 
     <!-- JQuery -->
     <script src="./assets/js/jquery.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
 
     <!-- External JS -->
     <script src="./assets/js/jquery/header.js"></script>
-    <!-- <script src="./assets/js/jquery/index.js"></script> -->
-    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/jquery/index.js"></script>
+    <!-- <script src="./assets/js/index.js"></script> -->
 
     <!-- Tippy Tooltip CDN -->
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
